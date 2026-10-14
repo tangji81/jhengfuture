@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>项目介绍 — 脊衡未来</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body data-page="about">
+
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="index.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="1.6" stroke-linecap="round">
+          <path d="M12 2v20"/><path d="M8 5c2.5 1 5.5 1 8 0"/><path d="M8 9.5c2.5 1 5.5 1 8 0"/>
+          <path d="M8 14c2.5 1 5.5 1 8 0"/><path d="M9 18.5c2 .8 4 .8 6 0"/>
+        </svg>
+        <span><span class="brand-name">脊衡未来</span><span class="brand-sub">SPINE-BALANCE FUTURE</span></span>
+      </a>
+      <nav class="nav-links">
+        <a href="index.html" data-page="home">首页</a>
+        <a href="dashboard.html" data-page="dashboard">健康管理平台</a>
+        <a href="analysis.html" data-page="analysis">载荷响应分析</a>
+        <a href="baseline.html" data-page="baseline">健康基线</a>
+        <a href="report.html" data-page="report">趋势报告</a>
+        <a href="about.html" data-page="about">项目介绍</a>
+      </nav>
+      <button class="nav-toggle" aria-label="菜单"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="page-head">
+      <span class="tag">ABOUT THE PROJECT</span>
+      <h1>项目介绍</h1>
+      <p class="desc">「脊衡未来」是一套面向青少年群体的脊柱健康动态筛查系统原型，以智能背心为数据采集载体，将标准化载荷激励、柔性感知与人工智能辅助分析相结合，实现从“单次姿态观察”到“长期力学响应趋势管理”的跨越。</p>
+    </div>
+
+    <section class="section" style="padding-top:24px">
+      <div class="about-grid">
+        <!-- 项目背景 -->
+        <div class="panel reveal">
+          <h3>01 · 项目背景</h3>
+          <p>青少年处于脊柱发育关键期，长时间伏案学习、单侧负重等习惯使脊柱健康问题呈现低龄化、隐匿化趋势。传统校园筛查多依赖目视观察与静态姿态拍照，存在明显局限：</p>
+          <ul style="margin-top:10px">
+            <li>静态姿态无法反映脊柱在受力条件下的真实力学状态</li>
+            <li>不同时间、不同检测者之间结果难以横向比较</li>
+            <li>缺乏个人纵向数据积累，无法区分“真实变化”与“测量噪声”</li>
+          </ul>
+          <p style="margin-top:10px">本项目以智慧健康城市建设为背景，探索可落地于校园与社区的工程化筛查方案。</p>
+        </div>
+
+        <!-- 核心差异 -->
+        <div class="panel reveal d1">
+          <h3>02 · 与传统姿态检测的本质区别</h3>
+          <div class="vs-wrap" style="grid-template-columns:1fr;margin-top:6px">
+            <div class="vs-box">
+              <h4>传统姿态检测</h4>
+              <p>观察自然站立姿态 → 拍摄体表形态 → 人工目测评估</p>
+              <p style="margin-top:6px">本质：<b style="color:var(--text)">静态形态学观察</b>，结果受姿势配合度、检测者经验影响大</p>
+            </div>
+            <div class="vs-box hi">
+              <h4>本项目：标准化载荷动态响应</h4>
+              <p>施加标准化载荷激励 → 采集动态力学响应 → AI 量化分析 → 个人基线趋势管理</p>
+              <p style="margin-top:6px">本质：<b style="color:var(--cyan)">标准化载荷条件下的人体动态力学响应测量</b>，可复现、可量化、可追踪</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 技术路线 -->
+        <div class="panel reveal">
+          <h3>03 · 技术路线</h3>
+          <ul class="route-list">
+            <li><span><b>标准化载荷激励</b><br/>由智能背心施加 5 / 10 / 15 / 20 kPa 分级载荷，激励条件统一、可复现</span></li>
+            <li><span><b>柔性压力 / 形变感知</b><br/>柔性传感阵列贴合背部六区域（L1–L3 / R1–R3）同步采集信号</span></li>
+            <li><span><b>力学响应数据采集</b><br/>高采样率记录压力-时间、形变-时间响应曲线</span></li>
+            <li><span><b>特征提取</b><br/>提取响应幅值、响应斜率、恢复时间、左右不对称指数等量化特征</span></li>
+            <li><span><b>AI 辅助分析</b><br/>模型识别响应模式，输出健康风险辅助筛查结论</span></li>
+            <li><span><b>个人健康基线管理</b><br/>首检建立 B0 基线，结合 MDC 阈值区分真实变化与测量波动</span></li>
+            <li><span><b>风险趋势提示</b><br/>跟踪 B0→B3 演进，输出低风险 / 需关注 / 建议专业筛查三级提示</span></li>
+          </ul>
+        </div>
+
+        <!-- 创新点 -->
+        <div class="panel reveal d1">
+          <h3>04 · 创新点</h3>
+          <ul>
+            <li><b style="color:var(--text)">测量范式创新：</b>从“看姿态”转向“测响应”，以标准化载荷激励保证多次检测结果可比</li>
+            <li><b style="color:var(--text)">传感方案创新：</b>柔性压力 / 形变复合感知阵列，分区刻画背部力学响应分布</li>
+            <li><b style="color:var(--text)">评价体系创新：</b>引入个人基线 B0 与 MDC 阈值，建立个体内纵向比较标准，避免群体阈值“一刀切”</li>
+            <li><b style="color:var(--text)">工程化创新：</b>背心式载体穿戴便捷，适合校园规模化、周期性筛查部署</li>
+          </ul>
+        </div>
+
+        <!-- 应用场景 -->
+        <div class="panel reveal" style="grid-column:1/-1">
+          <h3>05 · 应用场景</h3>
+          <div class="tech-grid" style="margin-top:14px">
+            <div class="vs-box">
+              <h4 style="color:var(--cyan)">校园周期筛查</h4>
+              <p>纳入学生体质健康监测体系，每学期定期采集，建立覆盖在校青少年的个人健康基线档案，实现早发现、早提示。</p>
+            </div>
+            <div class="vs-box">
+              <h4 style="color:var(--cyan)">社区健康服务</h4>
+              <p>部署于社区健康小屋，作为智慧城市基层健康感知节点，为家庭提供便捷的健康风险辅助筛查与趋势跟踪服务。</p>
+            </div>
+            <div class="vs-box">
+              <h4 style="color:var(--cyan)">区域数据平台</h4>
+              <p>脱敏汇总区域青少年脊柱健康趋势数据，为公共卫生决策与校园健康干预提供数据支撑，助力智慧健康城市建设。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="f-title">脊衡未来</div>
+      <p>基于标准化载荷激励与人工智能的青少年脊柱健康动态筛查系统</p>
+      <p style="margin-top:8px">中国研究生智慧城市技术与创意设计大赛参赛项目 · 本系统为科研原型，页面数据为模拟演示数据，仅用于健康风险辅助筛查，不构成医学诊断</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

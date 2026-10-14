@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>健康趋势分析报告 — 脊衡未来</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body data-page="report">
+
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="index.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="1.6" stroke-linecap="round">
+          <path d="M12 2v20"/><path d="M8 5c2.5 1 5.5 1 8 0"/><path d="M8 9.5c2.5 1 5.5 1 8 0"/>
+          <path d="M8 14c2.5 1 5.5 1 8 0"/><path d="M9 18.5c2 .8 4 .8 6 0"/>
+        </svg>
+        <span><span class="brand-name">脊衡未来</span><span class="brand-sub">SPINE-BALANCE FUTURE</span></span>
+      </a>
+      <nav class="nav-links">
+        <a href="index.html" data-page="home">首页</a>
+        <a href="dashboard.html" data-page="dashboard">健康管理平台</a>
+        <a href="analysis.html" data-page="analysis">载荷响应分析</a>
+        <a href="baseline.html" data-page="baseline">健康基线</a>
+        <a href="report.html" data-page="report">趋势报告</a>
+        <a href="about.html" data-page="about">项目介绍</a>
+      </nav>
+      <button class="nav-toggle" aria-label="菜单"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="page-head">
+      <span class="tag">TREND ANALYSIS REPORT</span>
+      <h1>健康趋势分析报告</h1>
+      <p class="desc">报告编号 RPT-AIS-2026-001-05 · 生成时间：<span class="mono" data-clock>--</span> · 本报告为健康风险辅助筛查与动态趋势管理结论，不构成医学诊断</p>
+    </div>
+
+    <!-- 报告生成进度 -->
+    <section style="padding-top:20px">
+      <div class="panel reveal" style="padding:16px 22px">
+        <div style="display:flex;justify-content:space-between;font-size:13px;color:var(--muted);margin-bottom:8px">
+          <span id="reportState">正在汇总检测数据并生成报告…</span>
+          <span class="mono" id="reportPct">0%</span>
+        </div>
+        <div class="load-bar" id="reportBar" style="margin-top:0"><i></i></div>
+      </div>
+    </section>
+
+    <div id="reportBody" style="opacity:0;transform:translateY(14px);transition:all .7s ease">
+
+      <!-- 综合评价三级 -->
+      <section class="section" style="padding-bottom:24px">
+        <div class="section-head reveal" style="margin-bottom:8px">
+          <span class="tag">OVERALL ASSESSMENT</span>
+          <h2 style="font-size:24px">综合评价</h2>
+        </div>
+        <div class="level-row">
+          <div class="panel level-card l1">
+            <div class="lv-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M4 12l5 5L20 6"/></svg></div>
+            <h3 style="color:var(--ok)">低风险</h3>
+            <p>各项指标处于基线波动范围内，维持常规动态管理</p>
+          </div>
+          <div class="panel level-card l2">
+            <span class="flag">本次评价结果</span>
+            <div class="lv-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M12 8v5"/><circle cx="12" cy="16.5" r=".8" fill="currentColor"/><path d="M10.3 3.8L2.6 17a2 2 0 001.7 3h15.4a2 2 0 001.7-3L13.7 3.8a2 2 0 00-3.4 0z"/></svg></div>
+            <h3 style="color:var(--warn)">需关注</h3>
+            <p>部分指标变化超出 MDC 波动范围，建议缩短复查间隔</p>
+          </div>
+          <div class="panel level-card l3">
+            <div class="lv-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v6"/><circle cx="12" cy="16.5" r=".8" fill="currentColor"/></svg></div>
+            <h3 style="color:var(--risk)">建议专业筛查</h3>
+            <p>多周期持续偏离或多项指标异常，建议前往专业机构进一步筛查</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 报告明细 -->
+      <section class="report-grid" style="padding-bottom:24px">
+        <div class="panel reveal">
+          <div class="panel-title">检测信息</div>
+          <ul class="kv-list">
+            <li><span class="k">检测编号</span><span class="v">AIS-2026-001</span></li>
+            <li><span class="k">检测时间</span><span class="v" data-clock>--</span></li>
+            <li><span class="k">检测次序</span><span class="v">第 5 次（当前检测）</span></li>
+            <li><span class="k">载荷方案</span><span class="v">5 / 10 / 15 / 20 kPa 分级激励</span></li>
+            <li><span class="k">数据完整率</span><span class="v">99.2 %</span></li>
+            <li><span class="k">对比基线</span><span class="v">B0（2026-03-12 建立）</span></li>
+          </ul>
+        </div>
+
+        <div class="panel reveal d1">
+          <div class="panel-title">响应变化（相对基线 B0）</div>
+          <ul class="kv-list">
+            <li><span class="k">力学响应指数变化量</span><span class="v delta-up">+7.2 %（超出 MDC 6.0%）</span></li>
+            <li><span class="k">左右不对称指数</span><span class="v delta-up">3.2 % → 6.7 %（L2/R2 区域）</span></li>
+            <li><span class="k">恢复时间</span><span class="v delta-up">2.6 s → 4.1 s</span></li>
+            <li><span class="k">平均稳定性</span><span class="v delta-ok">93.5 % → 90.4 %（范围内）</span></li>
+            <li><span class="k">趋势持续性</span><span class="v delta-up">连续 4 个周期单向偏移</span></li>
+          </ul>
+        </div>
+
+        <div class="panel reveal">
+          <div class="panel-title">历史趋势</div>
+          <div id="reportTrend" class="chart-sm"></div>
+        </div>
+
+        <div class="panel reveal d1">
+          <div class="panel-title">系统建议</div>
+          <ul class="advice-list">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M4 12l5 5L20 6"/></svg>本次变化量超出 MDC 阈值，建议将复查间隔由 10 周缩短至 4–6 周，获取下一周期数据确认趋势。</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M4 12l5 5L20 6"/></svg>L2/R2 区域不对称指数持续上升，建议关注日常坐姿、书包背负方式等载荷习惯，减少单侧长期负重。</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M4 12l5 5L20 6"/></svg>恢复时间延长提示组织恢复能力下降，建议结合适度背部肌群训练并跟踪恢复时间变化。</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M4 12l5 5L20 6"/></svg>若下一周期指标继续单向偏移，系统将升级为「建议专业筛查」，届时请前往专业机构做进一步检查。</li>
+          </ul>
+        </div>
+      </section>
+
+      <div class="note-box reveal" style="margin-bottom:40px">
+        <b>重要说明：</b>本报告由「脊衡未来」系统基于标准化载荷激励下的力学响应数据自动生成，仅用于青少年脊柱<b>健康风险辅助筛查</b>与<b>动态趋势管理</b>，不涉及任何疾病诊断结论。如需医学评估，请咨询专业机构。
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="f-title">脊衡未来</div>
+      <p>本系统输出为健康风险辅助筛查结果，不构成医学诊断 · 数据为模拟演示数据</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

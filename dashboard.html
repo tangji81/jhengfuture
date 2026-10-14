@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>智能健康管理平台 — 脊衡未来</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body data-page="dashboard">
+
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="index.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="1.6" stroke-linecap="round">
+          <path d="M12 2v20"/><path d="M8 5c2.5 1 5.5 1 8 0"/><path d="M8 9.5c2.5 1 5.5 1 8 0"/>
+          <path d="M8 14c2.5 1 5.5 1 8 0"/><path d="M9 18.5c2 .8 4 .8 6 0"/>
+        </svg>
+        <span><span class="brand-name">脊衡未来</span><span class="brand-sub">SPINE-BALANCE FUTURE</span></span>
+      </a>
+      <nav class="nav-links">
+        <a href="index.html" data-page="home">首页</a>
+        <a href="dashboard.html" data-page="dashboard">健康管理平台</a>
+        <a href="analysis.html" data-page="analysis">载荷响应分析</a>
+        <a href="baseline.html" data-page="baseline">健康基线</a>
+        <a href="report.html" data-page="report">趋势报告</a>
+        <a href="about.html" data-page="about">项目介绍</a>
+      </nav>
+      <button class="nav-toggle" aria-label="菜单"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="page-head">
+      <span class="tag">MANAGEMENT CONSOLE</span>
+      <h1>智能健康管理平台</h1>
+      <p class="desc">智能背心实时数据接入 · 六区域力学响应监测 · 长期动态趋势管理　|　系统时间：<span class="mono" data-clock>--</span></p>
+    </div>
+
+    <!-- 用户信息 + 状态总览 -->
+    <section class="dash-top" style="margin-top:24px">
+      <div class="panel user-card reveal">
+        <div class="panel-title">受检者信息卡 <span class="right">实时同步</span></div>
+        <div class="user-row"><span class="k">检测编号</span><span class="v">AIS-2026-001</span></div>
+        <div class="user-row"><span class="k">年龄</span><span class="v">14 岁</span></div>
+        <div class="user-row"><span class="k">检测次数</span><span class="v">5 次</span></div>
+        <div class="user-row"><span class="k">基线状态</span><span class="v" style="color:var(--ok)">B0 已建立</span></div>
+        <div class="user-row"><span class="k">当前不对称指数</span><span class="v" id="asymNow" style="color:var(--warn)">--</span></div>
+        <div class="user-row"><span class="k">综合提示</span><span class="status-pill warn">需关注</span></div>
+      </div>
+
+      <div class="panel reveal d1">
+        <div class="panel-title">历史检测趋势 <span class="right">长期动态管理 · 5 次检测</span></div>
+        <div id="trendChart" class="chart"></div>
+        <div class="legend-inline" style="margin-top:8px">
+          <span><i style="background:#fbbf24"></i>左右不对称指数（%）— 越小越对称</span>
+          <span><i style="background:#22d3ee"></i>平均稳定性（%）— 越大越稳定</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 六区域检测 -->
+    <section class="section" style="padding-top:20px">
+      <div class="section-head reveal" style="text-align:left;margin-bottom:22px;display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:10px">
+        <div>
+          <span class="tag">SIX-REGION MONITORING</span>
+          <h2 style="font-size:24px">背部六区域检测</h2>
+          <p>20 kPa 标准载荷下的分区力学响应 · 数据每 2.6 s 刷新</p>
+        </div>
+        <span class="status-pill warn" id="regionSummary">评估中…</span>
+      </div>
+      <div class="region-grid" id="regionGrid"></div>
+      <div class="legend-inline reveal" style="margin-top:18px">
+        <span><i style="background:#34d399"></i>正常：响应在基线波动范围内</span>
+        <span><i style="background:#fbbf24"></i>需关注：响应偏离基线，建议复查跟踪</span>
+        <span><i style="background:#f87171"></i>异常波动：偏离明显，建议专业筛查</span>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="f-title">脊衡未来</div>
+      <p>本系统输出为健康风险辅助筛查结果，不构成医学诊断 · 数据为模拟演示数据</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
