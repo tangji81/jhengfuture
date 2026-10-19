@@ -2,28 +2,28 @@
 
 儿童/青少年脊柱侧弯动态筛查展示站：6 个页面 + 首页 WebGL 三维背心（六区柔性传感器）。
 
-- 线上演示：https://spine-asym-screening.app.workbuddy.host/
+- 线上演示：https://tangji81.github.io/jhengfuture/
 - 技术栈：**纯静态，无构建、无 npm、无后端**。双击 `index.html` 即可打开。
 
 ## 30 秒跑起来
 
 - 直接双击 `index.html`（file:// 即可，无需服务器）
-- 或起个本地服务：`python -m http.server 8000`，然后访问 http://localhost:8000
+- 或起个本地服务：`python -m http.server 8000`，然后访问 <http://localhost:8000>
 
 ## 文件结构
 
-| 文件 | 作用 |
-|---|---|
-| `index.html` | 首页（含三维背心 canvas #vestCanvas） |
-| `script.js` | 全站脚本：首页 WebGL 背心渲染 + 各页图表/交互 |
-| `style.css` | 全站样式 |
-| `echarts.min.js` | 图表库（**本地依赖，勿删勿改 CDN**） |
-| `report.html` | 筛查报告页（雷达图/条形/折线） |
-| `dashboard.html` | 数据看板 |
-| `analysis.html` | 数据分析 |
-| `baseline.html` | 基线对比 |
-| `about.html` | 关于/团队 |
-| `.nojekyll` | 告诉 GitHub Pages 不要走 Jekyll 处理 |
+| 文件               | 作用                            |
+| ---------------- | ----------------------------- |
+| `index.html`     | 首页（含三维背心 canvas #vestCanvas）  |
+| `script.js`      | 全站脚本：首页 WebGL 背心渲染 + 各页图表/交互  |
+| `style.css`      | 全站样式                          |
+| `echarts.min.js` | 图表库（**本地依赖，勿删勿改 CDN**）        |
+| `report.html`    | 筛查报告页（雷达图/条形/折线）              |
+| `dashboard.html` | 数据看板                          |
+| `analysis.html`  | 数据分析                          |
+| `baseline.html`  | 基线对比                          |
+| `about.html`     | 关于/团队                         |
+| `.nojekyll`      | 告诉 GitHub Pages 不要走 Jekyll 处理 |
 
 ## 三维背心（首页）怎么改
 
