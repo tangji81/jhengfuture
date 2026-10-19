@@ -4,15 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>脊衡未来 — 基于标准化载荷激励与人工智能的青少年脊柱健康动态筛查系统</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css?v=20261019h" />
 </head>
 <body data-page="home">
 
-  <!-- 导航栏 -->
   <header class="nav">
     <div class="container nav-inner">
       <a class="brand" href="index.html">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="1.6" stroke-linecap="round">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#0f9b8e" stroke-width="1.7" stroke-linecap="round">
           <path d="M12 2v20"/><path d="M8 5c2.5 1 5.5 1 8 0"/><path d="M8 9.5c2.5 1 5.5 1 8 0"/>
           <path d="M8 14c2.5 1 5.5 1 8 0"/><path d="M9 18.5c2 .8 4 .8 6 0"/>
         </svg>
@@ -20,10 +19,10 @@
       </a>
       <nav class="nav-links">
         <a href="index.html" data-page="home">首页</a>
-        <a href="dashboard.html" data-page="dashboard">健康管理平台</a>
+        <a href="dashboard.html" data-page="result">检测结果</a>
         <a href="analysis.html" data-page="analysis">载荷响应分析</a>
         <a href="baseline.html" data-page="baseline">健康基线</a>
-        <a href="report.html" data-page="report">趋势报告</a>
+        <a href="report.html" data-page="report">综合风险评估</a>
         <a href="about.html" data-page="about">项目介绍</a>
       </nav>
       <button class="nav-toggle" aria-label="菜单"><span></span><span></span><span></span></button>
@@ -31,103 +30,146 @@
   </header>
 
   <main>
-    <!-- Hero -->
-    <section class="hero container">
-      <div class="hero-badge"><span class="dot"></span>中国研究生智慧城市技术与创意设计大赛 · 参赛项目原型</div>
-      <h1>脊衡未来</h1>
-      <p class="subtitle">基于<b>标准化载荷激励</b>与<b>人工智能</b>的青少年脊柱健康动态筛查系统<br/>智能背心 × 柔性感知 × AI 辅助分析 × 个人健康基线管理</p>
-      <div class="hero-actions">
-        <a class="btn" href="dashboard.html">
-          进入智能健康管理平台
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </a>
-        <a class="btn ghost" href="about.html">了解技术路线</a>
+    <!-- ============ 首屏：品牌 + 3D 智能背心 ============ -->
+    <section class="hero2">
+      <div class="container hero2-inner">
+        <div class="hero2-copy">
+          <div class="hero-badge"><span class="dot"></span>中国研究生智慧城市技术与创意设计大赛 · 参赛项目原型</div>
+          <h1>脊衡未来</h1>
+          <div class="hero2-sub">青少年脊柱健康动态筛查与管理平台</div>
+          <p class="hero2-desc">
+            以<b>脊衡衣智能背心</b>为数据入口，在<b>标准化载荷激励</b>下同步采集背部六区压力与形变响应，
+            经<b>AI 辅助分析</b>与<b>个人健康基线比对</b>，输出低风险 / 需关注 / 建议专业筛查三档
+            <b>健康风险辅助筛查</b>提示与长期<b>趋势管理</b>建议。
+          </p>
+          <div class="hero2-actions">
+            <a class="btn" href="dashboard.html">
+              进入智能健康管理平台
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+            <a class="btn ghost" href="about.html">了解技术路线</a>
+          </div>
+          <div class="hero2-metrics">
+            <div class="stat"><div class="num" data-target="6" data-suffix=" 区"></div><div class="lbl">背部感知区域</div></div>
+            <div class="stat"><div class="num" data-target="4" data-suffix=" 级"></div><div class="lbl">标准化载荷分级</div></div>
+            <div class="stat"><div class="num" data-target="20" data-suffix=" kPa"></div><div class="lbl">最大激励载荷</div></div>
+            <div class="stat"><div class="num" data-target="2" data-suffix=" 路"></div><div class="lbl">压力 / 形变同步通道</div></div>
+          </div>
+        </div>
+
+        <div class="hero2-visual">
+          <div class="vest-stage" id="vestStage">
+            <canvas class="v-canvas" id="vestCanvas" role="img"
+                    aria-label="六区柔性感知背心三维模型，可拖拽旋转"></canvas>
+            <div class="v-hint">按住拖拽可旋转查看 · 六区柔性感知阵列</div>
+          </div>
+          <div class="v-legend">
+            <span><i></i>六区柔性感知 L1–L3 / R1–R3</span>
+            <span><i class="t"></i>双通道：压力 P(t) + 形变 D(t)</span>
+          </div>
+        </div>
       </div>
-      <div class="hero-stats">
-        <div class="stat"><div class="num" data-target="6" data-suffix="区"></div><div class="lbl">背部检测区域</div></div>
-        <div class="stat"><div class="num" data-target="4" data-suffix="级"></div><div class="lbl">标准化载荷分级</div></div>
-        <div class="stat"><div class="num" data-target="20" data-suffix="kPa"></div><div class="lbl">最大激励载荷</div></div>
-        <div class="stat"><div class="num" data-target="98.6" data-dec="1" data-suffix="%"></div><div class="lbl">数据采集完整率</div></div>
+
+      <!-- 五步视觉流程 -->
+      <div class="container">
+        <div class="pipeline" id="pipeline">
+          <div class="pipe-step">
+            <div class="pi"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round"><path d="M9 3l-2 3v14h10V6l-2-3"/><path d="M9 3h6v3H9z"/><path d="M12 10v6"/></svg></div>
+            <h4>智能背心</h4>
+            <p>脊衡衣 · 六区柔性感知阵列贴合背部曲面</p>
+          </div>
+          <div class="pipe-step">
+            <div class="pi"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round"><rect x="4" y="4" width="6" height="6" rx="1.5"/><rect x="14" y="4" width="6" height="6" rx="1.5"/><rect x="4" y="14" width="6" height="6" rx="1.5"/><rect x="14" y="14" width="6" height="6" rx="1.5"/></svg></div>
+            <h4>六区柔性感知</h4>
+            <p>同步采集压力 P(t) 与形变 D(t) 双通道</p>
+          </div>
+          <div class="pipe-step">
+            <div class="pi"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round"><path d="M4 19h16"/><path d="M6 19V13"/><path d="M12 19V9"/><path d="M18 19V5"/></svg></div>
+            <h4>标准化载荷</h4>
+            <p>5 / 10 / 15 / 20 kPa 四档阶梯激励</p>
+          </div>
+          <div class="pipe-step">
+            <div class="pi"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round"><rect x="5" y="5" width="14" height="14" rx="3"/><path d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/></svg></div>
+            <h4>AI 辅助分析</h4>
+            <p>空间 / 时间 / 对称三类可解释特征</p>
+          </div>
+          <div class="pipe-step">
+            <div class="pi"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round"><path d="M3 17l5-6 4 3 5-8"/><path d="M3 21h18"/></svg></div>
+            <h4>健康管理</h4>
+            <p>个体基线比对 · 风险分级 · 趋势追踪</p>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- 背景动态波形 -->
-    <div style="height:120px;margin:-20px 0 10px;opacity:.8"><div id="heroWave" class="chart" style="height:120px"></div></div>
-
-    <!-- 三大核心技术 -->
     <section class="section container">
       <div class="section-head reveal">
         <span class="tag">CORE TECHNOLOGY</span>
         <h2>三大核心技术</h2>
-        <p>以智能背心为数据采集载体，构建“激励 — 感知 — 分析”的完整技术闭环</p>
+        <p>以脊衡衣智能背心为数据采集载体，构建"激励 — 感知 — 分析"的完整技术闭环</p>
       </div>
       <div class="tech-grid">
-        <div class="panel tech-card reveal">
+        <div class="card tech-card hoverable reveal">
           <span class="no">01</span>
           <div class="tech-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round"><path d="M12 3v10"/><path d="M8 9l4 4 4-4"/><path d="M4 17h16"/><path d="M6 21h12"/></svg>
           </div>
           <h3>标准化载荷激励</h3>
-          <p>通过可控、可复现的分级载荷激励（5 / 10 / 15 / 20 kPa），在统一力学条件下激发人体背部力学响应，保证多次检测之间的可比性，为动态趋势管理奠定数据基础。</p>
+          <p>通过可控、可复现的四档阶梯载荷（5 / 10 / 15 / 20 kPa，加载速率 2 kPa/s）激发人体背部力学响应，保证多次检测之间输入一致、结果可比，为动态趋势管理奠定数据基础。</p>
         </div>
-        <div class="panel tech-card reveal d1">
+        <div class="card tech-card hoverable reveal d1">
           <span class="no">02</span>
           <div class="tech-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round"><path d="M3 12c2-4 4-6 6-6s3 4 5 4 3-2 4-4"/><path d="M3 18c2-4 4-6 6-6s3 4 5 4 3-2 4-4"/><circle cx="9" cy="6" r="1.4"/><circle cx="14" cy="10" r="1.4"/></svg>
           </div>
-          <h3>柔性感知</h3>
-          <p>集成柔性压力 / 形变传感阵列，贴合背部曲面分区布设，同步采集 L1–L3 与 R1–R3 六个区域的力学响应数据，兼顾穿戴舒适性与信号保真度。</p>
+          <h3>六区同步柔性感知</h3>
+          <p>柔性压力 / 形变传感阵列贴合背部曲面分区布设，六区严格同高度、左右成对（L1–L3 / R1–R3，对应上 / 中 / 下背），在同一时钟基准下同步采集压力 P(t) 与形变 D(t) 双通道信号。</p>
         </div>
-        <div class="panel tech-card reveal d2">
+        <div class="card tech-card hoverable reveal d2">
           <span class="no">03</span>
           <div class="tech-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round"><rect x="5" y="5" width="14" height="14" rx="2"/><path d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/><path d="M10 13l2 2 3-4"/></svg>
           </div>
-          <h3>AI 辅助分析</h3>
-          <p>对力学响应信号进行特征提取与模式识别，计算左右不对称指数、恢复时间、响应斜率等量化指标，输出健康风险辅助筛查结论与趋势提示。</p>
+          <h3>AI 响应指纹识别</h3>
+          <p>把整条载荷—响应签名曲线作为个体状态指纹，提取空间 / 时间 / 对称三类可解释特征，交给 AI 模型识别模式；结合个体基线与 MDC 阈值，输出低风险 / 需关注 / 建议专业筛查三档辅助筛查结论。</p>
         </div>
       </div>
     </section>
 
-    <!-- 系统流程 -->
-    <section class="section container">
+    <section class="section container" style="padding-top:0">
       <div class="section-head reveal">
         <span class="tag">SYSTEM PIPELINE</span>
         <h2>系统工作流程</h2>
-        <p>从数据采集到动态管理的全链路闭环</p>
+        <p>从标准化载荷激励到个体基线比较的四阶段闭环</p>
       </div>
-      <div class="flow reveal">
-        <div class="flow-node">
-          <div class="fn-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round"><path d="M12 3v12"/><circle cx="12" cy="18" r="3"/><path d="M5 8c4-2 10-2 14 0"/></svg></div>
-          <h4>数据采集</h4>
-          <p>柔性传感阵列同步采集六区域压力 / 形变信号</p>
+      <div class="flow">
+        <div class="flow-step reveal">
+          <span class="fs-no">阶段一</span>
+          <h4>穿戴与标准化载荷激励</h4>
+          <p>完成标准化校准后，按受控测量条件对背部六区施加阶梯式载荷。校准保证零点与穿戴紧度一致，加压保证每次输入一致——只有输入一致，输出才有可比性。</p>
         </div>
-        <div class="flow-arrow"><span class="pulse"></span></div>
-        <div class="flow-node">
-          <div class="fn-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round"><path d="M4 6h16M4 12h10M4 18h14"/><circle cx="19" cy="12" r="2"/></svg></div>
-          <h4>特征提取</h4>
-          <p>提取响应幅值、斜率、恢复时间等力学特征</p>
+        <div class="flow-step reveal d1">
+          <span class="fs-no">阶段二</span>
+          <h4>双通道同步采集与预处理</h4>
+          <p>压力 P(t) 与形变 D(t) 同步采集，经时间同步 → 异常值剔除 → 去噪滤波 → 基线校正 → 质量判定，合成六区各自的载荷—响应签名曲线；质量不合格直接提示重测。</p>
         </div>
-        <div class="flow-arrow"><span class="pulse"></span></div>
-        <div class="flow-node">
-          <div class="fn-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round"><path d="M3 20h18"/><path d="M6 16l4-6 4 3 5-8"/></svg></div>
-          <h4>风险分析</h4>
-          <p>AI 模型输出健康风险辅助筛查结论</p>
+        <div class="flow-step reveal d2">
+          <span class="fs-no">阶段三</span>
+          <h4>特征提取与 AI 建模</h4>
+          <p>按空间类 / 时间类 / 对称类提取可解释特征，组合为"空间 × 载荷 × 时间 × 动作"四维特征张量，交给 AI 模型学习个体机械响应模式。</p>
         </div>
-        <div class="flow-arrow"><span class="pulse"></span></div>
-        <div class="flow-node">
-          <div class="fn-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
-          <h4>动态管理</h4>
-          <p>建立个人健康基线，跟踪长期变化趋势</p>
+        <div class="flow-step reveal d3">
+          <span class="fs-no">阶段四</span>
+          <h4>基线比较与风险输出</h4>
+          <p>不做人群横向排名，而与本人历史基线（B0 及上一次 B<sub>t−1</sub>）比较：变化量超过 MDC 才判为真实变化，输出三档风险提示与长期趋势，并回流为下一次基线。</p>
         </div>
       </div>
     </section>
 
-    <!-- 底部 CTA -->
-    <section class="section container" style="text-align:center">
-      <div class="panel reveal" style="padding:48px 24px">
-        <h2 style="font-size:clamp(20px,3vw,28px);margin-bottom:10px">查看真实系统后台演示</h2>
-        <p style="color:var(--muted);margin-bottom:26px">六区域实时检测 · 历史趋势曲线 · 标准化载荷响应分析 · 个人健康基线</p>
+    <section class="section container" style="text-align:center;padding-top:0">
+      <div class="card reveal" style="padding:44px 24px">
+        <h2 style="font-size:clamp(20px,3vw,28px);margin-bottom:10px">查看系统后台演示</h2>
+        <p style="color:#7b948d;margin-bottom:24px">六区实时检测 · SASI(P) 载荷响应分析 · 个人健康基线（MDC） · 综合风险评估</p>
         <a class="btn" href="dashboard.html">进入智能健康管理平台</a>
       </div>
     </section>
@@ -141,7 +183,7 @@
     </div>
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
-  <script src="script.js"></script>
+  <script src="echarts.min.js"></script>
+  <script src="script.js?v=20261019L"></script>
 </body>
 </html>

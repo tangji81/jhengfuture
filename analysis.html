@@ -3,116 +3,213 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>标准化载荷响应分析 — 脊衡未来</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>载荷响应分析 — 脊衡未来</title>
+  <link rel="stylesheet" href="style.css?v=20261019h" />
 </head>
 <body data-page="analysis">
 
-  <header class="nav">
-    <div class="container nav-inner">
-      <a class="brand" href="index.html">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="1.6" stroke-linecap="round">
-          <path d="M12 2v20"/><path d="M8 5c2.5 1 5.5 1 8 0"/><path d="M8 9.5c2.5 1 5.5 1 8 0"/>
-          <path d="M8 14c2.5 1 5.5 1 8 0"/><path d="M9 18.5c2 .8 4 .8 6 0"/>
-        </svg>
-        <span><span class="brand-name">脊衡未来</span><span class="brand-sub">SPINE-BALANCE FUTURE</span></span>
+<div class="app">
+  <aside class="side">
+    <div class="side-brand">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#0f9b8e" stroke-width="1.7" stroke-linecap="round">
+        <path d="M12 2v20"/><path d="M8 5c2.5 1 5.5 1 8 0"/><path d="M8 9.5c2.5 1 5.5 1 8 0"/>
+        <path d="M8 14c2.5 1 5.5 1 8 0"/><path d="M9 18.5c2 .8 4 .8 6 0"/>
+      </svg>
+      <span><span class="t">脊衡未来</span><span class="s">SPINE-BALANCE FUTURE</span></span>
+    </div>
+    <nav class="side-nav">
+      <a class="side-link" href="dashboard.html" data-page="result">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg>
+        检测结果
       </a>
-      <nav class="nav-links">
-        <a href="index.html" data-page="home">首页</a>
-        <a href="dashboard.html" data-page="dashboard">健康管理平台</a>
-        <a href="analysis.html" data-page="analysis">载荷响应分析</a>
-        <a href="baseline.html" data-page="baseline">健康基线</a>
-        <a href="report.html" data-page="report">趋势报告</a>
-        <a href="about.html" data-page="about">项目介绍</a>
-      </nav>
-      <button class="nav-toggle" aria-label="菜单"><span></span><span></span><span></span></button>
+      <a class="side-link" href="analysis.html" data-page="analysis">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M3 20h18"/><path d="M6 16l4-6 4 3 5-8"/></svg>
+        载荷响应分析
+      </a>
+      <a class="side-link" href="baseline.html" data-page="baseline">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+        健康基线
+      </a>
+      <a class="side-link" href="report.html" data-page="report">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M21 12.5L12 17.5 3 12.5"/></svg>
+        综合风险评估
+      </a>
+      <div class="side-sep"></div>
+      <a class="side-link" href="index.html" data-page="home">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M4 11l8-7 8 7"/><path d="M6 10v9h12v-9"/></svg>
+        返回首页
+      </a>
+      <a class="side-link" href="about.html" data-page="about">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v5"/><circle cx="12" cy="7.6" r=".9" fill="currentColor"/></svg>
+        项目介绍
+      </a>
+    </nav>
+    <div class="side-foot">脊衡衣 · 智能背心<br/>标准载荷激励协议见《说明书》表 3-1</div>
+  </aside>
+
+  <div class="main">
+    <header class="topbar">
+      <div class="crumb"><span>首页</span><span class="sep">/</span><span>健康评估</span><span class="sep">/</span><b>载荷响应分析</b></div>
+      <div class="user-chip">
+        <span class="avatar">李</span>
+        <span class="meta"><b>李同学</b><span>女 · 12 岁 · 检测编号 AIS-2026-007</span></span>
+        <span class="sim-chip">模拟数据</span>
+        <span class="clock" data-clock>--</span>
+      </div>
+    </header>
+
+    <div class="content">
+      <!-- 模拟数据标注：本页为虚构示例，仅用于测试展示 -->
+      <div class="sim-banner" role="note">
+        <svg class="sim-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <path d="M10.3 3.8L2.6 17a2 2 0 001.7 3h15.4a2 2 0 001.7-3L13.7 3.8a2 2 0 00-3.4 0z"/><path d="M12 8.5v5"/><circle cx="12" cy="17" r=".9" fill="currentColor"/>
+        </svg>
+        <div>
+          <b>模拟数据 · 仅用于测试与展示</b>
+          <span>本页受检者「李同学」为虚构示例，全部数值由程序按固定种子生成，不代表任何真实个体，不构成医学结论。</span>
+        </div>
+      </div>
+
+      <div class="page-title reveal">
+        <h1>标准化载荷响应分析</h1>
+        <p>核心创新环节：在可控分级载荷激励下采集人体动态力学响应，提取带符号不对称量 SASI(P) 及其演化特征。以下为一次完整检测周期的实时演示（分级加载 → 卸载恢复，自动循环）。</p>
+      </div>
+
+      <!-- 模块 1：实时检测 -->
+      <section>
+        <div class="card reveal">
+          <div class="card-head">
+            <span class="dot"></span><h3>模块 1 · 实时检测 · 标准化载荷输入过程</h3>
+            <span class="right"><span class="pill warn" style="margin:0">实时采集中</span></span>
+          </div>
+          <div class="load-now" id="loadNow">0<small> kPa</small></div>
+          <div class="load-label" id="loadLabel">分级加载准备中…</div>
+
+          <div class="live-tags">
+            <div class="live-tag on"><div class="k">当前载荷</div><div class="v" id="liveLoad">0 <small>kPa</small></div></div>
+            <div class="live-tag on"><div class="k">检测阶段</div><div class="v" id="livePhase" style="font-size:15px">分级加载</div></div>
+            <div class="live-tag"><div class="k">检测进度</div><div class="v" id="liveProg">0 <small>%</small></div></div>
+            <div class="live-tag"><div class="k">剩余时间</div><div class="v" id="liveRemain">-- <small>s</small></div></div>
+          </div>
+
+          <div class="live-prog">
+            <div class="lp-top"><span>单次检测周期进度</span><b id="liveProgTxt">0%</b></div>
+            <div class="lp-bar" id="liveProgBar"><i></i></div>
+          </div>
+
+          <div class="load-steps">
+            <span class="load-step">5 kPa</span>
+            <span class="load-step">10 kPa</span>
+            <span class="load-step">15 kPa</span>
+            <span class="load-step">20 kPa</span>
+          </div>
+          <div class="load-bar" id="loadBar"><i></i></div>
+          <div class="param-row">
+            <span>载荷档位 5 / 10 / 15 / 20 kPa</span>
+            <span>加载速率 2 kPa/s</span>
+            <span>单档保持 5 s</span>
+            <span>加载—卸载周期约 40–50 s</span>
+            <span>单次测量 3–5 min</span>
+            <span>测量区域 六区左右配对</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- 六区实时响应 -->
+      <section style="margin-top:16px">
+        <div class="card-head reveal" style="margin-bottom:10px">
+          <span class="dot"></span>
+          <h3>六区实时响应</h3>
+          <span class="right">压力 P(t) / 形变 D(t) · 同一时钟基准同步采集</span>
+        </div>
+        <div class="live-grid" id="liveGrid"></div>
+      </section>
+
+      <!-- 模块 2 / 3 -->
+      <section class="split-2" style="margin-top:16px">
+        <div class="card reveal">
+          <div class="card-head">
+            <span class="dot"></span><h3>模块 2 · 压力—时间曲线</h3>
+            <span class="right">实时：<span class="mono" id="rtPressure" style="color:#0f9b8e">--</span></span>
+          </div>
+          <div id="pressureChart" class="chart-sm"></div>
+        </div>
+        <div class="card reveal d1">
+          <div class="card-head">
+            <span class="dot"></span><h3>模块 3 · 形变—时间曲线</h3>
+            <span class="right">实时：<span class="mono" id="rtDeform" style="color:#17bfa8">--</span></span>
+          </div>
+          <div id="deformChart" class="chart-sm"></div>
+        </div>
+      </section>
+
+      <!-- 模块 4：SASI(P) -->
+      <section style="margin-top:16px">
+        <div class="card reveal">
+          <div class="card-head">
+            <span class="dot"></span>
+            <h3>模块 4 · 载荷依赖的左右不对称演化 SASI(P)</h3>
+            <span class="right">L1/R1 · L2/R2 · L3/R3</span>
+          </div>
+          <div id="sasiChart" class="chart"></div>
+          <div class="card-note" id="sasiNote"></div>
+        </div>
+      </section>
+
+      <!-- 高级分析指标 -->
+      <section style="margin-top:16px">
+        <div class="card-head reveal" style="margin-bottom:10px">
+          <span class="dot"></span>
+          <h3>高级分析指标</h3>
+          <span class="right">ADVANCED · 每级载荷稳态后自动重算 · 供专业人员参考</span>
+        </div>
+        <div class="card adv-panel reveal">
+          <div class="feat-row">
+          <div class="card feat-card reveal">
+            <div class="fc-val" id="fAmp">--</div>
+            <div class="fc-lbl">不对称幅值（中背）</div>
+            <div class="fc-note">对称类特征 · 回答"差多少"</div>
+          </div>
+          <div class="card feat-card reveal d1">
+            <div class="fc-val" id="fSlope">--</div>
+            <div class="fc-lbl">载荷斜率</div>
+            <div class="fc-note">对称类特征 · 不对称随载荷的变化率</div>
+          </div>
+          <div class="card feat-card reveal d2">
+            <div class="fc-val" id="fCross">--</div>
+            <div class="fc-lbl">反转点 P*</div>
+            <div class="fc-note">对称类特征 · 左右强弱关系翻转的载荷档位</div>
+          </div>
+          <div class="card feat-card reveal">
+            <div class="fc-val" id="fRec">--</div>
+            <div class="fc-lbl">恢复时间常数</div>
+            <div class="fc-note">时间类特征 · 卸载后响应回落速度</div>
+          </div>
+          <div class="card feat-card reveal d1">
+            <div class="fc-val" id="fHyst">--</div>
+            <div class="fc-lbl">滞回耗散比</div>
+            <div class="fc-note">时间类特征 · 加载—卸载环面积占比</div>
+          </div>
+          <div class="card feat-card reveal d2">
+            <div class="fc-val" id="fDom">--</div>
+            <div class="fc-lbl">传递矩阵对角占优度</div>
+            <div class="fc-note">空间类特征 · 6×6 区域响应传递矩阵</div>
+          </div>
+          </div>
+        </div>
+        <div class="note reveal" style="margin-top:16px">
+          <b>三类特征的分工：</b>空间类回答"哪里不对称"（六区响应分布、6×6 传递矩阵及其对角占优度）；
+          时间类回答"响应快慢与耗散"（响应峰值与峰值时间、恢复时间常数、滞回耗散比）；
+          对称类回答"如何随载荷变化"（不对称幅值、载荷斜率、反转点）。三者组合为"空间 × 载荷 × 时间 × 动作"四维特征张量。
+        </div>
+      </section>
+
+      <div class="demo-tag reveal">数据均为原型演示模拟数据，实时曲线为算法驱动的演示动画，不代表真实受检者结果</div>
     </div>
-  </header>
+  </div>
+</div>
 
-  <main class="container">
-    <div class="page-head">
-      <span class="tag">STANDARDIZED LOAD ANALYSIS</span>
-      <h1>标准化载荷响应分析</h1>
-      <p class="desc">项目核心创新环节：在可控分级载荷激励下采集人体动态力学响应，通过 AI 辅助分析提取量化特征。以下为一次完整检测周期的实时演示（分级加载 → 卸载恢复，自动循环）。</p>
-    </div>
-
-    <!-- 模块1：载荷输入过程 -->
-    <section class="section" style="padding-top:24px;padding-bottom:24px">
-      <div class="panel load-stage reveal">
-        <div class="panel-title" style="justify-content:center">模块 1 · 标准化载荷输入过程</div>
-        <div class="load-now" id="loadNow">0<small> kPa</small></div>
-        <div class="load-label" id="loadLabel">分级加载准备中…</div>
-        <div class="load-steps">
-          <span class="load-step">5 kPa</span>
-          <span class="load-step">10 kPa</span>
-          <span class="load-step">15 kPa</span>
-          <span class="load-step">20 kPa</span>
-        </div>
-        <div class="load-bar" id="loadBar"><i></i></div>
-      </div>
-    </section>
-
-    <!-- 模块2/3：响应曲线 -->
-    <section class="analysis-grid" style="padding-bottom:24px">
-      <div class="panel reveal">
-        <div class="panel-title">模块 2 · 压力 - 时间曲线 <span class="right">实时：<span class="mono" id="rtPressure" style="color:var(--cyan)">--</span></span></div>
-        <div id="pressureChart" class="chart-sm"></div>
-      </div>
-      <div class="panel reveal d1">
-        <div class="panel-title">模块 3 · 形变 - 时间曲线 <span class="right">实时：<span class="mono" id="rtDeform" style="color:#a78bfa">--</span></span></div>
-        <div id="deformChart" class="chart-sm"></div>
-      </div>
-
-      <!-- 模块4：左右差异曲线 -->
-      <div class="panel span2 reveal">
-        <div class="panel-title">模块 4 · 左右区域响应差异曲线 <span class="right">L1/R1 · L2/R2 · L3/R3</span></div>
-        <div id="diffChart" class="chart"></div>
-        <div class="legend-inline" style="margin-top:8px">
-          <span><i style="background:#34d399"></i>L1/R1 差异（上背）</span>
-          <span><i style="background:#fbbf24"></i>L2/R2 差异（中背）— 当前偏离最明显</span>
-          <span><i style="background:#5b8def"></i>L3/R3 差异（腰背）</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- 量化指标计算 -->
-    <section class="section" style="padding-top:8px">
-      <div class="section-head reveal" style="text-align:left;margin-bottom:20px">
-        <span class="tag">FEATURE EXTRACTION</span>
-        <h2 style="font-size:24px">AI 特征计算</h2>
-        <p>每级载荷稳态后自动重算，体现完整分析过程而非静态读数</p>
-      </div>
-      <div class="metric-tiles">
-        <div class="panel metric-tile reveal">
-          <div class="shimmer"></div>
-          <div class="mv" id="mAsym">计算中…</div>
-          <div class="mk">左右不对称指数 AI</div>
-          <div class="mnote" id="asymNote">AI = |L−R| / (L+R) × 100%</div>
-        </div>
-        <div class="panel metric-tile reveal d1">
-          <div class="shimmer"></div>
-          <div class="mv" id="mRec">计算中…</div>
-          <div class="mk">恢复时间</div>
-          <div class="mnote">卸载后压力响应回落至 10% 以内所需时间，反映组织弹性恢复能力</div>
-        </div>
-        <div class="panel metric-tile reveal d2">
-          <div class="shimmer"></div>
-          <div class="mv" id="mSlope">计算中…</div>
-          <div class="mk">响应斜率</div>
-          <div class="mnote">加载段压力响应曲线的上升速率，反映组织顺应性</div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <div class="container">
-      <div class="f-title">脊衡未来</div>
-      <p>本系统输出为健康风险辅助筛查结果，不构成医学诊断 · 数据为模拟演示数据</p>
-    </div>
-  </footer>
-
-  <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
-  <script src="script.js"></script>
+<script src="echarts.min.js"></script>
+<script src="script.js?v=20261019L"></script>
 </body>
 </html>

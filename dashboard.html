@@ -3,88 +3,216 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>智能健康管理平台 — 脊衡未来</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>检测结果 — 脊衡未来</title>
+  <link rel="stylesheet" href="style.css?v=20261019h" />
 </head>
-<body data-page="dashboard">
+<body data-page="result">
 
-  <header class="nav">
-    <div class="container nav-inner">
-      <a class="brand" href="index.html">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="1.6" stroke-linecap="round">
-          <path d="M12 2v20"/><path d="M8 5c2.5 1 5.5 1 8 0"/><path d="M8 9.5c2.5 1 5.5 1 8 0"/>
-          <path d="M8 14c2.5 1 5.5 1 8 0"/><path d="M9 18.5c2 .8 4 .8 6 0"/>
-        </svg>
-        <span><span class="brand-name">脊衡未来</span><span class="brand-sub">SPINE-BALANCE FUTURE</span></span>
+<div class="app">
+  <!-- 侧栏 -->
+  <aside class="side">
+    <div class="side-brand">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#0f9b8e" stroke-width="1.7" stroke-linecap="round">
+        <path d="M12 2v20"/><path d="M8 5c2.5 1 5.5 1 8 0"/><path d="M8 9.5c2.5 1 5.5 1 8 0"/>
+        <path d="M8 14c2.5 1 5.5 1 8 0"/><path d="M9 18.5c2 .8 4 .8 6 0"/>
+      </svg>
+      <span><span class="t">脊衡未来</span><span class="s">SPINE-BALANCE FUTURE</span></span>
+    </div>
+    <nav class="side-nav">
+      <a class="side-link" href="dashboard.html" data-page="result">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg>
+        检测结果
       </a>
-      <nav class="nav-links">
-        <a href="index.html" data-page="home">首页</a>
-        <a href="dashboard.html" data-page="dashboard">健康管理平台</a>
-        <a href="analysis.html" data-page="analysis">载荷响应分析</a>
-        <a href="baseline.html" data-page="baseline">健康基线</a>
-        <a href="report.html" data-page="report">趋势报告</a>
-        <a href="about.html" data-page="about">项目介绍</a>
-      </nav>
-      <button class="nav-toggle" aria-label="菜单"><span></span><span></span><span></span></button>
-    </div>
-  </header>
+      <a class="side-link" href="analysis.html" data-page="analysis">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M3 20h18"/><path d="M6 16l4-6 4 3 5-8"/></svg>
+        载荷响应分析
+      </a>
+      <a class="side-link" href="baseline.html" data-page="baseline">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+        健康基线
+      </a>
+      <a class="side-link" href="report.html" data-page="report">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M21 12.5L12 17.5 3 12.5"/></svg>
+        综合风险评估
+      </a>
+      <div class="side-sep"></div>
+      <a class="side-link" href="index.html" data-page="home">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M4 11l8-7 8 7"/><path d="M6 10v9h12v-9"/></svg>
+        返回首页
+      </a>
+      <a class="side-link" href="about.html" data-page="about">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v5"/><circle cx="12" cy="7.6" r=".9" fill="currentColor"/></svg>
+        项目介绍
+      </a>
+    </nav>
+    <div class="side-foot">脊衡衣 · 智能背心<br/>标准化载荷激励 + 六区同步采集</div>
+  </aside>
 
-  <main class="container">
-    <div class="page-head">
-      <span class="tag">MANAGEMENT CONSOLE</span>
-      <h1>智能健康管理平台</h1>
-      <p class="desc">智能背心实时数据接入 · 六区域力学响应监测 · 长期动态趋势管理　|　系统时间：<span class="mono" data-clock>--</span></p>
-    </div>
-
-    <!-- 用户信息 + 状态总览 -->
-    <section class="dash-top" style="margin-top:24px">
-      <div class="panel user-card reveal">
-        <div class="panel-title">受检者信息卡 <span class="right">实时同步</span></div>
-        <div class="user-row"><span class="k">检测编号</span><span class="v">AIS-2026-001</span></div>
-        <div class="user-row"><span class="k">年龄</span><span class="v">14 岁</span></div>
-        <div class="user-row"><span class="k">检测次数</span><span class="v">5 次</span></div>
-        <div class="user-row"><span class="k">基线状态</span><span class="v" style="color:var(--ok)">B0 已建立</span></div>
-        <div class="user-row"><span class="k">当前不对称指数</span><span class="v" id="asymNow" style="color:var(--warn)">--</span></div>
-        <div class="user-row"><span class="k">综合提示</span><span class="status-pill warn">需关注</span></div>
+  <!-- 主区 -->
+  <div class="main">
+    <header class="topbar">
+      <div class="crumb"><span>首页</span><span class="sep">/</span><span>健康评估</span><span class="sep">/</span><b>检测结果</b></div>
+      <div class="user-chip">
+        <span class="avatar">李</span>
+        <span class="meta"><b>李同学</b><span>女 · 12 岁 · 检测编号 AIS-2026-007</span></span>
+        <span class="sim-chip">模拟数据</span>
+        <span class="clock" data-clock>--</span>
       </div>
+    </header>
 
-      <div class="panel reveal d1">
-        <div class="panel-title">历史检测趋势 <span class="right">长期动态管理 · 5 次检测</span></div>
-        <div id="trendChart" class="chart"></div>
-        <div class="legend-inline" style="margin-top:8px">
-          <span><i style="background:#fbbf24"></i>左右不对称指数（%）— 越小越对称</span>
-          <span><i style="background:#22d3ee"></i>平均稳定性（%）— 越大越稳定</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- 六区域检测 -->
-    <section class="section" style="padding-top:20px">
-      <div class="section-head reveal" style="text-align:left;margin-bottom:22px;display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:10px">
+    <div class="content">
+      <!-- 模拟数据标注：本页为虚构示例，仅用于测试展示 -->
+      <div class="sim-banner" role="note">
+        <svg class="sim-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <path d="M10.3 3.8L2.6 17a2 2 0 001.7 3h15.4a2 2 0 001.7-3L13.7 3.8a2 2 0 00-3.4 0z"/><path d="M12 8.5v5"/><circle cx="12" cy="17" r=".9" fill="currentColor"/>
+        </svg>
         <div>
-          <span class="tag">SIX-REGION MONITORING</span>
-          <h2 style="font-size:24px">背部六区域检测</h2>
-          <p>20 kPa 标准载荷下的分区力学响应 · 数据每 2.6 s 刷新</p>
+          <b>模拟数据 · 仅用于测试与展示</b>
+          <span>本页受检者「李同学」为虚构示例，全部数值由程序按固定种子生成，不代表任何真实个体，不构成医学结论。</span>
         </div>
-        <span class="status-pill warn" id="regionSummary">评估中…</span>
       </div>
-      <div class="region-grid" id="regionGrid"></div>
-      <div class="legend-inline reveal" style="margin-top:18px">
-        <span><i style="background:#34d399"></i>正常：响应在基线波动范围内</span>
-        <span><i style="background:#fbbf24"></i>需关注：响应偏离基线，建议复查跟踪</span>
-        <span><i style="background:#f87171"></i>异常波动：偏离明显，建议专业筛查</span>
-      </div>
-    </section>
-  </main>
 
-  <footer class="footer">
-    <div class="container">
-      <div class="f-title">脊衡未来</div>
-      <p>本系统输出为健康风险辅助筛查结果，不构成医学诊断 · 数据为模拟演示数据</p>
+      <!-- 综合状态横幅 -->
+      <div class="banner warn reveal" id="resultBanner">
+        <span class="b-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <path d="M12 8v5"/><circle cx="12" cy="16.5" r=".9" fill="currentColor"/>
+            <path d="M10.3 3.8L2.6 17a2 2 0 001.7 3h15.4a2 2 0 001.7-3L13.7 3.8a2 2 0 00-3.4 0z"/>
+          </svg>
+        </span>
+        <div>
+          <h2 id="resultBannerTitle">需关注</h2>
+          <p id="resultBannerText">正在根据本次检测数据生成结论…</p>
+        </div>
+        <div class="b-dots"><i></i><i class="on"></i><i></i></div>
+      </div>
+
+      <!-- 当前检测状态：四项校验 -->
+      <section class="status-strip reveal" style="margin-top:14px" id="detStatus">
+        <div class="st-item">
+          <span class="st-ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+          <div><b>检测完成</b><span>单次检测流程已完整执行</span></div>
+        </div>
+        <div class="st-item">
+          <span class="st-ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M12 3v6"/><path d="M12 9l4 4"/><circle cx="12" cy="17" r="4"/></svg></span>
+          <div><b id="stQualB">数据完整率 —</b><span>穿戴 / 扫描 / 程序校验通过</span></div>
+        </div>
+        <div class="st-item">
+          <span class="st-ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><rect x="4" y="4" width="6" height="6" rx="1.4"/><rect x="14" y="4" width="6" height="6" rx="1.4"/><rect x="4" y="14" width="6" height="6" rx="1.4"/><rect x="14" y="14" width="6" height="6" rx="1.4"/></svg></span>
+          <div><b>六区信号正常</b><span>L1–L3 / R1–R3 同步采集</span></div>
+        </div>
+        <div class="st-item">
+          <span class="st-ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M4 19h16"/><path d="M6 19v-5"/><path d="M12 19V9"/><path d="M18 19V5"/></svg></span>
+          <div><b>标准化载荷执行完成</b><span>5 / 10 / 15 / 20 kPa 四档阶梯</span></div>
+        </div>
+      </section>
+
+      <!-- 大型核心指标卡：综合不对称指数 SASI -->
+      <section class="card kpi-hero reveal" id="kpiHero" style="margin-top:14px">
+        <div class="ring-wrap">
+          <svg class="ring" viewBox="0 0 148 148" aria-hidden="true">
+            <circle class="ring-bg" cx="74" cy="74" r="64"></circle>
+            <circle class="ring-fg" id="kpiRing" cx="74" cy="74" r="64"></circle>
+          </svg>
+          <div class="ring-in">
+            <div>
+              <div class="v" id="kpiVal">--<i>%</i></div>
+              <div class="u">SASI</div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="kh-title">综合不对称指数 SASI</div>
+          <div class="kh-sub">带符号定义 · 正值表示右侧响应较大（《说明书》3.3.3）</div>
+          <div class="kh-row">
+            <div class="kh-cell"><div class="k">较个人基线</div><div class="n up" id="kpiDelta">--</div></div>
+            <div class="kh-cell"><div class="k">MDC 阈值</div><div class="n" id="kpiMdc">--</div></div>
+            <div class="kh-cell"><div class="k">提示方向</div><div class="n" id="kpiBend">--</div></div>
+            <div class="kh-cell"><div class="k">当前状态</div><div class="n" id="kpiStatus">--</div></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ① 六区压力—形变曲线 -->
+      <section style="margin-top:18px">
+        <div class="card-head reveal" style="margin-bottom:10px">
+          <span class="dot"></span>
+          <h3>1. 六个区域压力—形变曲线</h3>
+          <span class="right">20 kPa 标准载荷 · 四档阶梯加载 → 卸载恢复 · 单次测量约 45 s</span>
+        </div>
+        <div class="grid-6" id="regionGrid"></div>
+      </section>
+
+      <!-- ② 左右响应差异 ③ 个人历史趋势 -->
+      <section class="split" style="margin-top:18px">
+        <div class="card reveal">
+          <div class="card-head">
+            <span class="dot"></span>
+            <h3>2. 左右响应差异分析</h3>
+            <span class="right">当前值 vs 基线值（kPa）</span>
+          </div>
+          <div class="split-2" style="gap:8px;align-items:center">
+            <div id="radarChart" class="chart-md"></div>
+            <table class="mini-tbl" id="regionTbl"></table>
+          </div>
+          <div class="card-note">
+            带符号不对称量 SASI<sub>k</sub>(P) = (R<sub>k</sub>(P) − L<sub>k</sub>(P)) / [(R<sub>k</sub>(P) + L<sub>k</sub>(P)) / 2]，
+            正值表示右侧响应较大。中背层面差异最明显。
+          </div>
+        </div>
+
+        <div class="card reveal d1">
+          <div class="card-head">
+            <span class="dot"></span>
+            <h3>3. 个人历史趋势</h3>
+            <span class="right">B0 → B3</span>
+          </div>
+          <div id="historyChart" class="chart-md"></div>
+          <div class="card-note">红色虚线为 MDC 阈值（6.0%）。变化量超过该阈值才判为真实变化，否则判为测量波动并提示复测。</div>
+        </div>
+      </section>
+
+      <!-- ④ 关键指标 -->
+      <section style="margin-top:18px">
+        <div class="card-head reveal" style="margin-bottom:10px">
+          <span class="dot"></span>
+          <h3>4. 关键指标</h3>
+          <span class="right">当前检测（B3，2026-10-14）</span>
+        </div>
+        <div class="metric-row">
+          <div class="card metric-card reveal">
+            <div class="mc-val" id="mAsym">--</div>
+            <div class="mc-lbl">综合不对称指数</div>
+            <div class="mc-note" id="mAsymNote">—</div>
+          </div>
+          <div class="card metric-card reveal d1">
+            <div class="mc-val" id="mPress">--</div>
+            <div class="mc-lbl">压力响应幅度</div>
+            <div class="mc-note" id="mPressNote">—</div>
+          </div>
+          <div class="card metric-card reveal d2">
+            <div class="mc-val" id="mDeform">--</div>
+            <div class="mc-lbl">形变响应幅度</div>
+            <div class="mc-note" id="mDeformNote">—</div>
+          </div>
+          <div class="card metric-card reveal d3">
+            <div class="mc-val" id="mTrend">--</div>
+            <div class="mc-lbl">变化趋势</div>
+            <div class="mc-note" id="mTrendNote">—</div>
+          </div>
+        </div>
+      </section>
+
+      <div class="note reveal" style="margin-top:16px">
+        <b>系统建议：</b><span id="dashAdvice">正在根据本次检测数据生成…</span>
+        本结果为健康风险辅助筛查提示，<b>不构成医学诊断</b>，不替代影像学检查及专业评估。
+      </div>
+      <div class="demo-tag reveal">数据均为原型演示模拟数据，用于产品形态演示，不代表真实受检者结果</div>
     </div>
-  </footer>
+  </div>
+</div>
 
-  <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
-  <script src="script.js"></script>
+<script src="echarts.min.js"></script>
+<script src="script.js?v=20261019L"></script>
 </body>
 </html>

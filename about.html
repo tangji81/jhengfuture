@@ -4,14 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>项目介绍 — 脊衡未来</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css?v=20261019h" />
 </head>
 <body data-page="about">
 
   <header class="nav">
     <div class="container nav-inner">
       <a class="brand" href="index.html">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="1.6" stroke-linecap="round">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#0f9b8e" stroke-width="1.7" stroke-linecap="round">
           <path d="M12 2v20"/><path d="M8 5c2.5 1 5.5 1 8 0"/><path d="M8 9.5c2.5 1 5.5 1 8 0"/>
           <path d="M8 14c2.5 1 5.5 1 8 0"/><path d="M9 18.5c2 .8 4 .8 6 0"/>
         </svg>
@@ -19,10 +19,10 @@
       </a>
       <nav class="nav-links">
         <a href="index.html" data-page="home">首页</a>
-        <a href="dashboard.html" data-page="dashboard">健康管理平台</a>
+        <a href="dashboard.html" data-page="result">检测结果</a>
         <a href="analysis.html" data-page="analysis">载荷响应分析</a>
         <a href="baseline.html" data-page="baseline">健康基线</a>
-        <a href="report.html" data-page="report">趋势报告</a>
+        <a href="report.html" data-page="report">综合风险评估</a>
         <a href="about.html" data-page="about">项目介绍</a>
       </nav>
       <button class="nav-toggle" aria-label="菜单"><span></span><span></span><span></span></button>
@@ -30,86 +30,135 @@
   </header>
 
   <main class="container">
-    <div class="page-head">
-      <span class="tag">ABOUT THE PROJECT</span>
-      <h1>项目介绍</h1>
-      <p class="desc">「脊衡未来」是一套面向青少年群体的脊柱健康动态筛查系统原型，以智能背心为数据采集载体，将标准化载荷激励、柔性感知与人工智能辅助分析相结合，实现从“单次姿态观察”到“长期力学响应趋势管理”的跨越。</p>
-    </div>
+    <section class="section" style="padding-bottom:0">
+      <div class="section-head reveal">
+        <span class="tag">ABOUT THE PROJECT</span>
+        <h2>项目介绍</h2>
+        <p>「脊衡未来」是一套面向青少年脊柱健康风险初筛与动态监测的系统原型：以<b>脊衡衣智能背心</b>为数据采集载体，将标准化载荷激励、六区柔性感知与人工智能辅助分析相结合，实现从"单次形态观察"到"长期力学响应趋势管理"的跨越。</p>
+      </div>
+    </section>
 
-    <section class="section" style="padding-top:24px">
-      <div class="about-grid">
-        <!-- 项目背景 -->
-        <div class="panel reveal">
-          <h3>01 · 项目背景</h3>
-          <p>青少年处于脊柱发育关键期，长时间伏案学习、单侧负重等习惯使脊柱健康问题呈现低龄化、隐匿化趋势。传统校园筛查多依赖目视观察与静态姿态拍照，存在明显局限：</p>
-          <ul style="margin-top:10px">
-            <li>静态姿态无法反映脊柱在受力条件下的真实力学状态</li>
-            <li>不同时间、不同检测者之间结果难以横向比较</li>
-            <li>缺乏个人纵向数据积累，无法区分“真实变化”与“测量噪声”</li>
-          </ul>
-          <p style="margin-top:10px">本项目以智慧健康城市建设为背景，探索可落地于校园与社区的工程化筛查方案。</p>
+    <section class="split-2" style="padding-bottom:16px">
+      <div class="card reveal">
+        <div class="card-head"><span class="dot"></span><h3>01 · 项目背景</h3></div>
+        <p style="font-size:13.5px;color:#7b948d">青少年特发性脊柱侧弯（AIS）主要发生于 10～18 岁人群，早期通常缺乏明显症状，容易在日常学习生活中被忽视。我国该年龄段脊柱侧弯汇总患病率约为 1.2%（系统评价与 Meta 分析，纳入 42 项研究、114.9 万名青少年）。</p>
+        <ul class="advice" style="margin-top:10px">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>传统人工筛查依赖体态观察与前屈试验，主观性强、量化不足</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>形态类方法（AI 视觉、三维表面扫描）易受姿态与环境影响，多集中于单次筛查</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>缺少个人纵向数据积累，无法区分"真实变化"与"测量噪声"</li>
+        </ul>
+        <p style="font-size:13.5px;color:#7b948d;margin-top:10px">本项目以智慧健康城市建设为背景，探索可落地于校园与社区的工程化筛查方案。</p>
+      </div>
+
+      <div class="card reveal d1">
+        <div class="card-head"><span class="dot"></span><h3>02 · 与传统筛查方式的本质区别</h3></div>
+        <div class="card" style="background:#fbfdfe;margin-bottom:12px">
+          <h4 style="font-size:14.5px;margin-bottom:6px">传统形态学筛查</h4>
+          <p style="font-size:13px;color:#7b948d">观察自然站立姿态 → 拍摄体表形态 → 人工目测评估</p>
+          <p style="font-size:13px;color:#7b948d;margin-top:6px">本质：<b style="color:#12271f">静态形态学观察</b>，结果受姿势配合度与检测者经验影响大，形态在穿戴、体表条件干扰下易失真。</p>
         </div>
+        <div class="card" style="background:#e6f6f4;border-color:#b8e6e1">
+          <h4 style="font-size:14.5px;margin-bottom:6px;color:#0f9b8e">本项目：标准化载荷下的动态力学响应</h4>
+          <p style="font-size:13px;color:#33524a">施加标准化载荷激励 → 采集双通道力学响应 → AI 模式识别 → 个人基线趋势管理</p>
+          <p style="font-size:13px;color:#33524a;margin-top:6px">本质：<b style="color:#0f9b8e">可复现、可量化、可追踪的力学响应测量</b>——测的是"刚度／力学响应"，与"测形态"属于不同物理量通道。</p>
+        </div>
+      </div>
+    </section>
 
-        <!-- 核心差异 -->
-        <div class="panel reveal d1">
-          <h3>02 · 与传统姿态检测的本质区别</h3>
-          <div class="vs-wrap" style="grid-template-columns:1fr;margin-top:6px">
-            <div class="vs-box">
-              <h4>传统姿态检测</h4>
-              <p>观察自然站立姿态 → 拍摄体表形态 → 人工目测评估</p>
-              <p style="margin-top:6px">本质：<b style="color:var(--text)">静态形态学观察</b>，结果受姿势配合度、检测者经验影响大</p>
-            </div>
-            <div class="vs-box hi">
-              <h4>本项目：标准化载荷动态响应</h4>
-              <p>施加标准化载荷激励 → 采集动态力学响应 → AI 量化分析 → 个人基线趋势管理</p>
-              <p style="margin-top:6px">本质：<b style="color:var(--cyan)">标准化载荷条件下的人体动态力学响应测量</b>，可复现、可量化、可追踪</p>
-            </div>
+    <section class="section" style="padding-top:24px;padding-bottom:0">
+      <div class="section-head reveal" style="margin-bottom:26px">
+        <span class="tag">TECHNICAL ROUTE</span>
+        <h2>技术路线</h2>
+      </div>
+      <div class="flow">
+        <div class="flow-step reveal">
+          <span class="fs-no">阶段一</span>
+          <h4>穿戴与标准化载荷激励</h4>
+          <p>脊衡衣智能背心完成标准化校准后，对背部六区施加 5 / 10 / 15 / 20 kPa 阶梯载荷，激励条件统一、可复现。</p>
+        </div>
+        <div class="flow-step reveal d1">
+          <span class="fs-no">阶段二</span>
+          <h4>双通道同步采集与预处理</h4>
+          <p>压力 P(t) 与形变 D(t) 同源同步（六区 L1–L3 / R1–R3），经同步、异常剔除、滤波、基线校正与质量判定，得到载荷—响应签名曲线。</p>
+        </div>
+        <div class="flow-step reveal d2">
+          <span class="fs-no">阶段三</span>
+          <h4>特征提取与 AI 建模</h4>
+          <p>提取空间类、时间类与对称类可解释特征，构建四维特征张量；模型路线为传统机器学习 → 时间序列模型 → 时空模型，逐级升级。</p>
+        </div>
+        <div class="flow-step reveal d3">
+          <span class="fs-no">阶段四</span>
+          <h4>个体基线管理与风险提示</h4>
+          <p>首检建立基线 B0，结合 MDC 阈值区分真实变化与测量波动，输出低风险 / 需关注 / 建议专业筛查三级提示。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:34px;padding-bottom:0">
+      <div class="section-head reveal" style="margin-bottom:26px">
+        <span class="tag">INNOVATION</span>
+        <h2>创新点</h2>
+        <p>从指标构造、判读基准、建模目标、应用形态四个层面提炼</p>
+      </div>
+      <div class="split-2">
+        <div class="card reveal">
+          <div class="card-head"><span class="dot"></span><h3>（1）从"单点刚度"到"载荷依赖的对称性演化"</h3></div>
+          <p style="font-size:13.3px;color:#7b948d">不再报"某一个载荷下不对称多少"，而是六个区域左右成对、按四档载荷阶梯加压，绘制带符号不对称量随载荷变化的曲线：</p>
+          <div class="mono" style="text-align:center;font-size:14px;color:#0f9b8e;background:#e4f6f3;border:1px solid #b3e4dd;border-radius:10px;padding:10px;margin:10px 0">
+            SASI<sub>k</sub>(P) = (R<sub>k</sub>(P) − L<sub>k</sub>(P)) / [(R<sub>k</sub>(P) + L<sub>k</sub>(P)) / 2]
           </div>
+          <p style="font-size:13.3px;color:#7b948d">由曲线提取三个特征：<b style="color:#12271f">不对称幅值</b>（差多少）、<b style="color:#12271f">载荷斜率</b>（随载荷变化多快）、<b style="color:#12271f">反转点</b>（左右强弱关系翻转的载荷档位）。其中反转点是全新指标。必须使用<b style="color:#12271f">带符号</b>定义——取绝对值将无法定义反转点。</p>
         </div>
 
-        <!-- 技术路线 -->
-        <div class="panel reveal">
-          <h3>03 · 技术路线</h3>
-          <ul class="route-list">
-            <li><span><b>标准化载荷激励</b><br/>由智能背心施加 5 / 10 / 15 / 20 kPa 分级载荷，激励条件统一、可复现</span></li>
-            <li><span><b>柔性压力 / 形变感知</b><br/>柔性传感阵列贴合背部六区域（L1–L3 / R1–R3）同步采集信号</span></li>
-            <li><span><b>力学响应数据采集</b><br/>高采样率记录压力-时间、形变-时间响应曲线</span></li>
-            <li><span><b>特征提取</b><br/>提取响应幅值、响应斜率、恢复时间、左右不对称指数等量化特征</span></li>
-            <li><span><b>AI 辅助分析</b><br/>模型识别响应模式，输出健康风险辅助筛查结论</span></li>
-            <li><span><b>个人健康基线管理</b><br/>首检建立 B0 基线，结合 MDC 阈值区分真实变化与测量波动</span></li>
-            <li><span><b>风险趋势提示</b><br/>跟踪 B0→B3 演进，输出低风险 / 需关注 / 建议专业筛查三级提示</span></li>
-          </ul>
-        </div>
-
-        <!-- 创新点 -->
-        <div class="panel reveal d1">
-          <h3>04 · 创新点</h3>
-          <ul>
-            <li><b style="color:var(--text)">测量范式创新：</b>从“看姿态”转向“测响应”，以标准化载荷激励保证多次检测结果可比</li>
-            <li><b style="color:var(--text)">传感方案创新：</b>柔性压力 / 形变复合感知阵列，分区刻画背部力学响应分布</li>
-            <li><b style="color:var(--text)">评价体系创新：</b>引入个人基线 B0 与 MDC 阈值，建立个体内纵向比较标准，避免群体阈值“一刀切”</li>
-            <li><b style="color:var(--text)">工程化创新：</b>背心式载体穿戴便捷，适合校园规模化、周期性筛查部署</li>
-          </ul>
-        </div>
-
-        <!-- 应用场景 -->
-        <div class="panel reveal" style="grid-column:1/-1">
-          <h3>05 · 应用场景</h3>
-          <div class="tech-grid" style="margin-top:14px">
-            <div class="vs-box">
-              <h4 style="color:var(--cyan)">校园周期筛查</h4>
-              <p>纳入学生体质健康监测体系，每学期定期采集，建立覆盖在校青少年的个人健康基线档案，实现早发现、早提示。</p>
-            </div>
-            <div class="vs-box">
-              <h4 style="color:var(--cyan)">社区健康服务</h4>
-              <p>部署于社区健康小屋，作为智慧城市基层健康感知节点，为家庭提供便捷的健康风险辅助筛查与趋势跟踪服务。</p>
-            </div>
-            <div class="vs-box">
-              <h4 style="color:var(--cyan)">区域数据平台</h4>
-              <p>脱敏汇总区域青少年脊柱健康趋势数据，为公共卫生决策与校园健康干预提供数据支撑，助力智慧健康城市建设。</p>
-            </div>
+        <div class="card reveal d1">
+          <div class="card-head"><span class="dot"></span><h3>（2）从"与人群比"到"与自己比"</h3></div>
+          <p style="font-size:13.3px;color:#7b948d">不设跨人群绝对阈值。首测建立个人力学响应基线 B0，把"变化率"本身作为风险信号，并引入最小可检变化：</p>
+          <div class="mono" style="text-align:center;font-size:14px;color:#0f9b8e;background:#e4f6f3;border:1px solid #b3e4dd;border-radius:10px;padding:10px;margin:10px 0">
+            MDC = 1.96 × √2 × SEM
           </div>
+          <p style="font-size:13.3px;color:#7b948d">其中 SEM 为同一受试者重复测量的标准误。只有变化量超过 MDC 才判为"真实变化"，否则判为测量波动并提示复测——这是"个体基线"能够成立的前提。</p>
         </div>
+
+        <div class="card reveal">
+          <div class="card-head"><span class="dot"></span><h3>（3）从"参数辨识"到"响应指纹识别"</h3></div>
+          <p style="font-size:13.3px;color:#7b948d">不以给出有量纲的刚度值（N/m）为目标——量纲精度是专用设备的主场。改为把整条载荷—响应签名曲线作为个体状态指纹，交给 AI 模型识别模式。</p>
+          <p style="font-size:13.3px;color:#7b948d;margin-top:8px">直接好处是<b style="color:#12271f">论证负担更小</b>：只需证明"模式可分"，不需要证明数值与金标准线性相关。战场从"谁测得更准"切换到"谁能区分状态"。</p>
+        </div>
+
+        <div class="card reveal d1">
+          <div class="card-head"><span class="dot"></span><h3>（4）从"检测设备"到"城市级筛查—复诊数据闭环"</h3></div>
+          <p style="font-size:13.3px;color:#7b948d">交付物不是一台设备，而是一条可长期运行的纵向数据链：低成本、可重复、免耗材的穿戴式测量使月度／季度复测在校园场景真正可执行。</p>
+          <p style="font-size:13.3px;color:#7b948d;margin-top:8px">系统输出"低风险 / 需关注 / 建议专业筛查"三档结论，并与学校体检、基层卫生系统对接，形成按<b style="color:#12271f">区、校、年级</b>聚合的区域青少年脊柱力学健康档案。</p>
+        </div>
+      </div>
+
+      <div class="note reveal" style="margin-top:16px">
+        <b>技术手段说明：</b>标准化载荷激励、双通道同步采集、柔性穿戴＋多区域传感、六区域独立测量等，均属本项目的<b>实现条件</b>，在已有研究与专利中可被覆盖，本项目不将其作为创新点主张。
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:34px">
+      <div class="section-head reveal" style="margin-bottom:26px">
+        <span class="tag">APPLICATION</span>
+        <h2>应用场景</h2>
+      </div>
+      <div class="tech-grid">
+        <div class="card hoverable reveal">
+          <h3 style="font-size:17px;color:#0f9b8e">校园周期筛查与分级转诊</h3>
+          <p style="font-size:13.3px;color:#7b948d;margin-top:8px">纳入学生体质健康监测流程，由校医或体检人员操作，单次数分钟、免耗材、可重复。输出三档结果，把需进一步检查者分流至专科，建立覆盖在校青少年的个人健康基线档案。</p>
+        </div>
+        <div class="card hoverable reveal d1">
+          <h3 style="font-size:17px;color:#0f9b8e">社区健康服务与家庭监测</h3>
+          <p style="font-size:13.3px;color:#7b948d;margin-top:8px">部署于社区健康小屋或家庭场景，基于个体基线与 MDC 判据持续跟踪左右对称性与多区域响应指纹的变化，仅当变化量超过 MDC 才提示关注，减少对单次测量的依赖。</p>
+        </div>
+        <div class="card hoverable reveal d2">
+          <h3 style="font-size:17px;color:#0f9b8e">区域数据平台</h3>
+          <p style="font-size:13.3px;color:#7b948d;margin-top:8px">脱敏汇总区域青少年脊柱力学健康数据，按区、校、年级聚合统计，与学校体检及基层卫生系统对接，为教育与卫健部门的资源配置与干预优先级提供依据，助力智慧健康城市建设。</p>
+        </div>
+      </div>
+
+      <div class="note reveal" style="margin-top:16px">
+        系统定位于青少年脊柱健康<b>风险初筛与动态监测</b>，输出分级结果与趋势提示，不替代影像学检查及专业医学诊断；其有效性仍需通过规范的人体试验与专业评估进一步验证。
       </div>
     </section>
   </main>
@@ -122,7 +171,7 @@
     </div>
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
-  <script src="script.js"></script>
+  <script src="echarts.min.js"></script>
+  <script src="script.js?v=20261019L"></script>
 </body>
 </html>

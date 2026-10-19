@@ -3,94 +3,162 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>个人健康基线管理 — 脊衡未来</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>健康基线 — 脊衡未来</title>
+  <link rel="stylesheet" href="style.css?v=20261019h" />
 </head>
 <body data-page="baseline">
 
-  <header class="nav">
-    <div class="container nav-inner">
-      <a class="brand" href="index.html">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="1.6" stroke-linecap="round">
-          <path d="M12 2v20"/><path d="M8 5c2.5 1 5.5 1 8 0"/><path d="M8 9.5c2.5 1 5.5 1 8 0"/>
-          <path d="M8 14c2.5 1 5.5 1 8 0"/><path d="M9 18.5c2 .8 4 .8 6 0"/>
-        </svg>
-        <span><span class="brand-name">脊衡未来</span><span class="brand-sub">SPINE-BALANCE FUTURE</span></span>
+<div class="app">
+  <aside class="side">
+    <div class="side-brand">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#0f9b8e" stroke-width="1.7" stroke-linecap="round">
+        <path d="M12 2v20"/><path d="M8 5c2.5 1 5.5 1 8 0"/><path d="M8 9.5c2.5 1 5.5 1 8 0"/>
+        <path d="M8 14c2.5 1 5.5 1 8 0"/><path d="M9 18.5c2 .8 4 .8 6 0"/>
+      </svg>
+      <span><span class="t">脊衡未来</span><span class="s">SPINE-BALANCE FUTURE</span></span>
+    </div>
+    <nav class="side-nav">
+      <a class="side-link" href="dashboard.html" data-page="result">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg>
+        检测结果
       </a>
-      <nav class="nav-links">
-        <a href="index.html" data-page="home">首页</a>
-        <a href="dashboard.html" data-page="dashboard">健康管理平台</a>
-        <a href="analysis.html" data-page="analysis">载荷响应分析</a>
-        <a href="baseline.html" data-page="baseline">健康基线</a>
-        <a href="report.html" data-page="report">趋势报告</a>
-        <a href="about.html" data-page="about">项目介绍</a>
-      </nav>
-      <button class="nav-toggle" aria-label="菜单"><span></span><span></span><span></span></button>
-    </div>
-  </header>
+      <a class="side-link" href="analysis.html" data-page="analysis">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M3 20h18"/><path d="M6 16l4-6 4 3 5-8"/></svg>
+        载荷响应分析
+      </a>
+      <a class="side-link" href="baseline.html" data-page="baseline">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+        健康基线
+      </a>
+      <a class="side-link" href="report.html" data-page="report">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M21 12.5L12 17.5 3 12.5"/></svg>
+        综合风险评估
+      </a>
+      <div class="side-sep"></div>
+      <a class="side-link" href="index.html" data-page="home">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M4 11l8-7 8 7"/><path d="M6 10v9h12v-9"/></svg>
+        返回首页
+      </a>
+      <a class="side-link" href="about.html" data-page="about">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v5"/><circle cx="12" cy="7.6" r=".9" fill="currentColor"/></svg>
+        项目介绍
+      </a>
+    </nav>
+    <div class="side-foot">脊衡衣 · 智能背心<br/>MDC 由重复性实验确定</div>
+  </aside>
 
-  <main class="container">
-    <div class="page-head">
-      <span class="tag">PERSONAL BASELINE</span>
-      <h1>个人健康基线管理</h1>
-      <p class="desc">首次检测建立个人力学响应基线 B0，后续每次检测生成 B1 / B2 / B3，通过 MDC（最小可检测变化）阈值判断变化是否超出测量本身的波动范围，实现真正的动态趋势管理。</p>
-    </div>
+  <div class="main">
+    <header class="topbar">
+      <div class="crumb"><span>首页</span><span class="sep">/</span><span>健康评估</span><span class="sep">/</span><b>健康基线</b></div>
+      <div class="user-chip">
+        <span class="avatar">李</span>
+        <span class="meta"><b>李同学</b><span>女 · 12 岁 · 检测编号 AIS-2026-007</span></span>
+        <span class="sim-chip">模拟数据</span>
+        <span class="clock" data-clock>--</span>
+      </div>
+    </header>
 
-    <section class="section" style="padding-top:24px">
-      <div class="baseline-grid">
-        <!-- 趋势图 -->
-        <div class="panel reveal">
-          <div class="panel-title">基线演进趋势（B0 → B3） <span class="right">绿色区域为 MDC 允许波动带</span></div>
+    <div class="content">
+      <!-- 模拟数据标注：本页为虚构示例，仅用于测试展示 -->
+      <div class="sim-banner" role="note">
+        <svg class="sim-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <path d="M10.3 3.8L2.6 17a2 2 0 001.7 3h15.4a2 2 0 001.7-3L13.7 3.8a2 2 0 00-3.4 0z"/><path d="M12 8.5v5"/><circle cx="12" cy="17" r=".9" fill="currentColor"/>
+        </svg>
+        <div>
+          <b>模拟数据 · 仅用于测试与展示</b>
+          <span>本页受检者「李同学」为虚构示例，全部数值由程序按固定种子生成，不代表任何真实个体，不构成医学结论。</span>
+        </div>
+      </div>
+
+      <div class="page-title reveal">
+        <h1>个人健康基线管理</h1>
+        <p>首次检测建立个人力学响应基线 B0，后续每次检测生成 B1 / B2 / B3，通过 MDC（最小可检变化）阈值判断变化是否超出测量本身的波动范围，实现真正的动态趋势管理。</p>
+      </div>
+
+      <!-- 个人健康基线演进时间轴 -->
+      <section class="card reveal" style="margin-bottom:16px">
+        <div class="card-head">
+          <span class="dot"></span><h3>个人健康基线演进（B0 → B3）</h3>
+          <span class="right">个人健康档案 · 每一次检测都是一次纵向随访</span>
+        </div>
+        <div class="tl">
+          <div class="tl-line"><i id="tlFill"></i></div>
+          <div class="tl-nodes" id="tlNodes"></div>
+        </div>
+      </section>
+
+      <section class="split">
+        <div class="card reveal">
+          <div class="card-head">
+            <span class="dot"></span><h3>基线演进趋势（B0 → B3）</h3>
+            <span class="right">绿色区域为 MDC 允许波动带</span>
+          </div>
           <div id="baselineChart" class="chart"></div>
         </div>
 
-        <!-- 当前变化量 -->
-        <div style="display:flex;flex-direction:column;gap:20px">
-          <div class="panel metric-tile reveal d1" style="text-align:left">
-            <div class="mk" style="margin-bottom:6px">当前相对基线变化量（B3 − B0）</div>
-            <div class="mv" id="deltaValue" style="font-size:44px;text-align:left">0.0</div>
-            <div class="mnote" style="margin-top:10px">MDC 阈值 = 6.0%，变化量超过该阈值即判定为“超出测量波动范围”，提示需关注</div>
+        <div style="display:flex;flex-direction:column;gap:16px">
+          <div class="card metric-card reveal d1" style="text-align:left">
+            <div class="mc-lbl" style="margin-bottom:6px">当前相对基线变化量（B3 − B0）</div>
+            <div class="mc-val" id="deltaValue" style="font-size:40px;text-align:left;color:#d78f0a">0.0</div>
+            <div class="mc-note" style="margin-top:10px">MDC 阈值 = 6.0%，变化量超过该阈值即判定为"超出测量波动范围"，提示需关注</div>
           </div>
-          <div class="panel reveal d2">
-            <div class="panel-title">MDC 阈值判断说明</div>
-            <p style="font-size:13.5px;color:var(--muted)">
-              MDC（Minimal Detectable Change，最小可检测变化）由系统重复测量误差确定，用于区分<b style="color:var(--text)">真实变化</b>与<b style="color:var(--text)">测量噪声</b>：
-            </p>
-            <ul style="margin-top:10px;font-size:13.5px;color:var(--muted)">
-              <li style="padding:7px 0">· |变化量| ≤ 6.0% → 处于测量波动范围内，维持常规跟踪</li>
-              <li style="padding:7px 0">· |变化量| &gt; 6.0% → 超出波动范围，触发“需关注”提示</li>
-              <li style="padding:7px 0">· 连续两次超出 → 建议进行专业筛查</li>
+
+          <div class="card reveal d2">
+            <div class="card-head"><span class="dot"></span><h3>个人健康档案</h3></div>
+            <div class="file-cells" id="fileCells"></div>
+          </div>
+
+          <div class="card reveal d3">
+            <div class="card-head"><span class="dot"></span><h3>重复性与 MDC 推导</h3></div>
+            <ul class="kv">
+              <li><span class="k">组内相关系数 ICC</span><span class="v ok" id="iccVal">0.00</span></li>
+              <li><span class="k">测量标准误差 SEM</span><span class="v" id="semVal">0.00 %</span></li>
+              <li><span class="k">最小可检变化 MDC</span><span class="v up">6.0 %</span></li>
             </ul>
+            <div class="card-note">
+              MDC = 1.96 × √2 × SEM（同一受试者重复测量不少于 3 次，含重新穿戴）。
+              ICC &gt; 0.75 视为基线可靠。
+            </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      <!-- 基线数据表 -->
-      <div class="panel reveal" style="margin-top:20px">
-        <div class="panel-title">基线数据记录 <span class="right">检测编号 AIS-2026-001</span></div>
-        <div style="overflow-x:auto">
-          <table class="bl-table">
-            <thead>
-              <tr><th>基线</th><th>检测日期</th><th>力学响应指数</th><th>相对 B0 变化量</th><th>MDC 判断</th></tr>
-            </thead>
-            <tbody id="blTableBody"></tbody>
-          </table>
+      <section class="split" style="margin-top:16px">
+        <div class="card reveal">
+          <div class="card-head">
+            <span class="dot"></span><h3>基线数据记录</h3>
+            <span class="right" id="blCaseId">检测编号 —</span>
+          </div>
+          <div style="overflow-x:auto">
+            <table class="tbl">
+              <thead>
+                <tr><th>基线</th><th>检测日期</th><th>力学响应指数</th><th>相对 B0 变化量</th><th>MDC 判断</th></tr>
+              </thead>
+              <tbody id="blTableBody"></tbody>
+            </table>
+          </div>
         </div>
-        <div class="note-box">
-          <b>结论：</b>B3（当前检测）相对 B0 变化量为 <b>+7.2%</b>，已超出 MDC 阈值（6.0%），判定变化超出测量波动范围。系统已将该受检者标记为「需关注」，建议缩短复查间隔并跟踪下一周期数据，详见 <a href="report.html" style="color:var(--cyan)">健康趋势分析报告</a>。
-        </div>
-      </div>
-    </section>
-  </main>
 
-  <footer class="footer">
-    <div class="container">
-      <div class="f-title">脊衡未来</div>
-      <p>本系统输出为健康风险辅助筛查结果，不构成医学诊断 · 数据为模拟演示数据</p>
+        <div class="card reveal d1">
+          <div class="card-head"><span class="dot"></span><h3>MDC 阈值判断说明</h3></div>
+          <p style="font-size:13.3px;color:#7b948d">
+            MDC（Minimal Detectable Change，最小可检变化）由系统重复测量误差确定，用于区分<b style="color:#12271f">真实变化</b>与<b style="color:#12271f">测量噪声</b>：
+          </p>
+          <ul class="advice" style="margin-top:8px">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>|变化量| ≤ 6.0% → 处于测量波动范围内，维持常规跟踪</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>|变化量| &gt; 6.0% → 超出波动范围，触发"需关注"提示</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>连续两次同方向超出 → 升级为"建议专业筛查"</li>
+          </ul>
+        </div>
+      </section>
+
+      <div class="note reveal" style="margin-top:16px" id="blConcl"></div>
+      <div class="demo-tag reveal">数据均为原型演示模拟数据，用于产品形态演示，不代表真实受检者结果</div>
     </div>
-  </footer>
+  </div>
+</div>
 
-  <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
-  <script src="script.js"></script>
+<script src="echarts.min.js"></script>
+<script src="script.js?v=20261019L"></script>
 </body>
 </html>
