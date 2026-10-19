@@ -245,22 +245,21 @@ function initVest() {
      领口 / 袖窿 在片元里按参数域精确挖穿（discard），边界平滑；
      壳体内外两层，因此有真实壁厚（1 单位 ≈ 1.5 mm）
      ============================================================ */
-  const H = 340;            // 衣长 510mm（参考图是短款，长宽比 ≈1.4）
+  const H = 253;            // 衣长 380mm（图纸「背长 38cm」）
   const TH = 6;             // 壳壁厚 9mm
-  /* 领口按「小孩头刚能过」定：横向约 92mm，前落 53mm / 后落 25mm
-     （前领深 ×H = 落肩量；单位换算 1 单位 ≈ 1.5mm） */
-  const NU = 0.093;         // 前领半宽（u）→ 领口宽 ≈ 133mm
-  const NB = 0.100;         // 后领半宽
-  const T_NECK = 0.210;     // 前领深（t）≈ 107mm
-  const T_BNECK = 0.088;    // 后领深 ≈ 45mm
+  /* 领口按常规背心比例收成小 U 形，肩部保持连续；H×t×1.5mm 换算实际领深 */
+  const NU = 0.060;         // 前领半宽，收为常规圆领开度
+  const NB = 0.060;         // 后领半宽，与前领形成窄领圈
+  const T_NECK = 0.045;     // 前领深约 17mm
+  const T_BNECK = 0.035;    // 后领深约 13mm
   /* 袖窿 = 侧面的【封闭椭圆孔】，孔顶低于肩线 —— 顶边在肩膀上方保持一整圈
      连续布料，前片经肩带跨过肩膀连到后片；若从顶边开口则会咬断肩带 */
-  const AC_U = 0.085;       // 袖窿半宽（u）→ 肩带留 51mm
-  const AC_T = 0.453;       // 袖窿中心高度（t）：孔从 0.200 开到 0.706
-  const AC_R = 0.253;       // 袖窿半高（t）：孔顶 t=0.200 ≈ 肩带 102mm
+  const AC_U = 0.115;       // 袖窿半宽（u）：孔 0.135~0.365
+  const AC_T = 0.285;       // 袖窿中心高度
+  const AC_R = 0.200;       // 袖窿半高：孔 0.085~0.485（深 152mm）
 
-  const PA = [[0, 117], [.09, 124], [.28, 118], [.45, 103], [.60, 104], [.82, 111], [1, 113]];
-  const PB = [[0, 64], [.09, 80], [.28, 80], [.45, 65], [.60, 67], [.82, 73], [1, 76]];
+  const PA = [[0, 70], [.10, 80], [.285, 94], [.45, 86], [.62, 85], [.82, 86], [1, 88]];
+  const PB = [[0, 32], [.10, 41], [.285, 50], [.45, 47], [.62, 48], [.82, 50], [1, 52]];
 
   const prof = (P, t) => {
     if (t <= P[0][0]) return P[0][1];
@@ -282,8 +281,8 @@ function initVest() {
      顶边仍是一整片 15cm 深的"肩垫"，俯视看就是一个大开口。
      所以 A 收得轻、B 收得重，顶边就变成一条窄脊 —— 这才像肩带。 */
   const SH_T = 0.088;       // 收圆作用区 ≈ 45mm
-  const SH_KA = 0.90;       // 顶边处左右半径收到 90%
-  const SH_KB = 0.56;       // 顶边处前后半径收到 56%（肩带厚度 ≈79mm）
+  const SH_KA = 1.00;       // 肩部形态已由 PA 表给出，不再额外收
+  const SH_KB = 1.00;       // 同上（PB 表已把顶边压薄）
   const shoulderKA = t => {
     if (t >= SH_T) return 1;
     const k = 1 - t / SH_T;
@@ -311,7 +310,7 @@ function initVest() {
     EDGE_B * edgeBump(Math.abs(u - 0.5), EDGE_WB, EDGE_P)
   );
   const EDGE_T2 = 0.073;    // 顶边成形作用厚度
-  const SH_DROP = 22;       // 肩头相对肩峰的下落量（≈33mm）
+  const SH_DROP = 0;        // 已取消：它会把肩带正上方下拉成 W 形缺口
   const armpitBump = u => {
     const d = Math.abs(((u % 0.5) + 0.5) % 0.5 - 0.25);
     if (d >= 0.140) return 0;
@@ -325,11 +324,32 @@ function initVest() {
     return -(edgeDrop(u) + SH_DROP * armpitBump(u)) * s;
   };
 
+  /* 顶边卷边：让顶边截面走一段圆弧。原来内外层在顶边收拢成一条刀口，
+     斜上方看就是"没包住的薄片"；卷成圆弧后是一条实心圆管。 */
+  const HEM_T = 0.015;      // 卷边高度 ≈6mm
+  const HEM_R = 2.0;        // 卷边半径（≈3mm）
+  /* 肩斜：肩峰处顶边最高，向领口侧重下降。
+     没有这段时，顶边是水平一圈，肩带顶端读起来是两个硬方角。 */
+  const SH_ARC = 10;        // 肩斜落差（模型单位，≈15mm）
+  const SH_ARC_W = 0.115;   // 作用半宽：要覆盖整个肩带跨度
+  const shoulderArc = u => {
+    const d = Math.abs(((u % 0.5) + 0.5) % 0.5 - 0.25);
+    if (d >= SH_ARC_W) return 0;
+    const q = 1 - d / SH_ARC_W;
+    return q * q * (3 - 2 * q);
+  };
+
+  const hemRoll = t => (t >= HEM_T ? 0 : Math.PI * (1 - t / HEM_T));
+
   const POS = (u, t, lift, dy) => {
     const ph = u * Math.PI * 2;
-    const a = A_OF(t) * shoulderKA(t) + (lift || 0);
-    const b = B_OF(t) * shoulderKB(t) + (lift || 0);
-    return [a * Math.sin(ph), H / 2 - t * H + (dy || 0), b * Math.cos(ph)];
+    const th = hemRoll(t);
+    const dr = HEM_R * Math.sin(th);
+    const dy2 = -HEM_R * (1 - Math.cos(th));
+    const a = A_OF(t) * shoulderKA(t) + dr + (lift || 0);
+    const b = B_OF(t) * shoulderKB(t) + dr + (lift || 0);
+    const arc = -SH_ARC * (1 - shoulderArc(u)) * Math.max(0, 1 - t / 0.055);
+    return [a * Math.sin(ph), H / 2 - t * H + dy2 + arc + (dy || 0), b * Math.cos(ph)];
   };
 
   /* 传感器只装一面：rear = 贴脊柱那一侧（穿着时贴皮肤）；front = 胸前展示面 */
@@ -361,7 +381,7 @@ function initVest() {
 
   /* 所有开口边（顶边、下摆、领口、袖窿）都做对折包缝：
      内外两层在边界处收拢到同一条圆角线，边缘是缝死的，没有敞口薄片 */
-  const EDGE_T = 0.015;
+  const EDGE_T = 0.018;
   const GAP = 0.8;  // 内层与外壳在边缘处留 ~1.2mm：重合会 z-fighting，掠射角下太薄也会闪白茬
   const edgeDist = (u, t) => Math.min(t, 1 - t, Math.abs(cutField(u, t)));
   const hemK = (u, t) => {
@@ -491,6 +511,15 @@ function initVest() {
     "  if (sxc < 0.0022 && vUV.y > 0.30) c *= 0.88;",
     "  if (abs(vUV.x - 0.75) < 0.0022 && vUV.y > 0.30) c *= 0.88;",
     "  if (abs(vUV.x - 0.5) < 0.0016 && vUV.y > 0.18) c *= 0.86;",
+    "  /* 背部拼缝：两条从肩胛斜向腰的弧线（图纸背面的 Y 形分片） */",
+    "  vec2 yp = vec2(abs((vUV.x - 0.5) * 1.9), vUV.y);",
+    "  vec2 ya = vec2(0.114, 0.115), yb = vec2(0.0285, 0.445);",
+    "  vec2 yab = yb - ya;",
+    "  float yh = clamp(dot(yp - ya, yab) / dot(yab, yab), 0.0, 1.0);",
+    "  float dY = length(yp - ya - yab * yh);",
+    "  if (dY < 0.0030) c *= 0.80;",
+    "  /* 腰线：下摆上方约 20mm 的一道横缝 */",
+    "  if (abs(vUV.y - 0.905) < 0.0032 && abs(vUV.x - 0.5) < 0.245) c *= 0.82;",
     "  if (uCut > 0.5 && uCut < 1.5 && field > -0.006) c = mix(c, vec3(0.235, 0.272, 0.332), 0.34);",
     "  if (uCut > 1.5) c = mix(c, base * 0.9, 0.40);",
     "  float band = smoothstep(0.046, 0.0, abs(vUV.y - uScan)) * 0.28;",
@@ -575,10 +604,11 @@ function initVest() {
   /* ---------------- 分组 ---------------- */
   const groups = [
     { col: [0.148, 0.180, 0.252], cut: 1, pos: [], nor: [], uv: [], zon: [], loc: [], idx: [], n: 0 }, // 0 外层面料
-    { col: [0.068, 0.084, 0.116], cut: 2, pos: [], nor: [], uv: [], zon: [], loc: [], idx: [], n: 0 }, // 1 内里
+    { col: [0.104, 0.122, 0.156], cut: 2, pos: [], nor: [], uv: [], zon: [], loc: [], idx: [], n: 0 }, // 1 内里
     { col: [0.248, 0.275, 0.330], cut: 0, pos: [], nor: [], uv: [], zon: [], loc: [], idx: [], n: 0 }, // 2 软垫
     { col: [0.205, 0.234, 0.272], cut: 0, pos: [], nor: [], uv: [], zon: [], loc: [], idx: [], n: 0 }, // 3 背面软垫
-    { col: [0.300, 0.318, 0.344], cut: 0, pos: [], nor: [], uv: [], zon: [], loc: [], idx: [], n: 0 }  // 4 金属
+    { col: [0.300, 0.318, 0.344], cut: 0, pos: [], nor: [], uv: [], zon: [], loc: [], idx: [], n: 0 }, // 4 金属
+    { col: [0.148, 0.180, 0.252], cut: 0, pos: [], nor: [], uv: [], zon: [], loc: [], idx: [], n: 0 }  // 5 肩部连接面
   ];
 
   const pushQuad = (g, p, n, uvs, zone, loc) => {
@@ -639,15 +669,52 @@ function initVest() {
   build(outerInset, shoulderDrop, groups[0]);
   build(innerInset, shoulderDrop, groups[1]);
 
+  /* 肩带连接片：连接前后衣片与领口边缘，避免筒形顶缘形成整圈敞口。 */
+  const addShoulderBridge = () => {
+    const group = groups[5];
+    const SEG = 384, BRIDGE_W = 48; // 肩带向内覆盖约 72mm，收小领口开度
+    const smooth = x => { const q = Math.max(0, Math.min(1, x)); return q * q * (3 - 2 * q); };
+    const neckDepth = u => {
+      const df = Math.abs(u - Math.round(u)), db = Math.abs(u - 0.5);
+      const front = df < NU ? T_NECK * Math.pow(Math.max(0, 1 - (df / NU) ** 2), 1.5) : 0;
+      const back = db < NB ? T_BNECK * Math.pow(Math.max(0, 1 - (db / NB) ** 2), 1.5) : 0;
+      return Math.max(front, back);
+    };
+    const bridgeWidth = u => {
+      if (u >= NU && u <= 0.25) return BRIDGE_W * smooth((u - NU) / (0.25 - NU));
+      if (u > 0.25 && u <= 0.5 - NB) return BRIDGE_W * smooth((0.5 - NB - u) / (0.25 - NB));
+      if (u >= 0.5 + NB && u <= 0.75) return BRIDGE_W * smooth((u - 0.5 - NB) / (0.25 - NB));
+      if (u > 0.75 && u <= 1 - NU) return BRIDGE_W * smooth((1 - NU - u) / (0.25 - NU));
+      return 0;
+    };
+    const innerEdge = (u, outer) => {
+      const t = neckDepth(u);
+      if (t > 0) return POS(u, t, 0, shoulderDrop(u, t)); // 与前后领口切边重合
+      const w = bridgeWidth(u), side = u < 0.5 ? 1 : -1;
+      return [outer[0] - side * w, outer[1], outer[2]];
+    };
+    for (let i = 0; i < SEG; i++) {
+      const u0 = i / SEG, u1 = (i + 1) / SEG;
+      const outer0 = POS(u0, 0, 0, shoulderDrop(u0, 0));
+      const outer1 = POS(u1, 0, 0, shoulderDrop(u1, 0));
+      if (neckDepth(u0) === 0 && neckDepth(u1) === 0 && bridgeWidth(u0) === 0 && bridgeWidth(u1) === 0) continue;
+      const inner0 = innerEdge(u0, outer0), inner1 = innerEdge(u1, outer1);
+      pushQuad(group, [outer0, outer1, inner1, inner0],
+        [[0, 1, 0], [0, 1, 0], [0, 1, 0], [0, 1, 0]],
+        [[u0, 0], [u1, 0], [u1, 0.05], [u0, 0.05]], -1, [9, 9]);
+    }
+  };
+  addShoulderBridge();
+
   /* ---------------- 六区感知软垫 ---------------- */
-  const PADU = 0.058, PADT = 0.086;   // 单块软垫 ≈ 76mm 宽 × 88mm 高
+  const PADU = 0.050, PADT = 0.086;   // 单块软垫 ≈74mm 宽 × 88mm 高
   const ZONES = [];
   for (let r = 0; r < 3; r++) {
     for (let s = 0; s < 2; s++) {
       const id = (s ? "R" : "L") + (r + 1);
       const t = 0.300 + r * 0.203;      // 三行：0.300 / 0.503 / 0.706
-      ZONES.push({ id, u: s ? 0.072 : -0.072, t, rear: false, z: r * 2 + s });
-      ZONES.push({ id, u: s ? 0.572 : 0.428, t, rear: true, z: r * 2 + s });
+      ZONES.push({ id, u: s ? 0.060 : -0.060, t, rear: false, z: r * 2 + s });
+      ZONES.push({ id, u: s ? 0.560 : 0.440, t, rear: true, z: r * 2 + s });
     }
   }
   const padLift = zone => (u, t) => {
@@ -741,7 +808,7 @@ function initVest() {
   });
 
   /* ---------------- 相机 ---------------- */
-  const DIST = 1000, FOV = 24 * Math.PI / 180;
+  const DIST = 744, FOV = 24 * Math.PI / 180;
   const persp = aspect => {
     const f = 1 / Math.tan(FOV / 2), nf = 1 / (200 - 3000);
     return new Float32Array([
